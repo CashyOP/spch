@@ -711,7 +711,26 @@ let result = await contractInstance.getchicken(_refaddr).send(args);
 } else alert('Minimum Investment is 50 TRX');
 } else alert ('The Project is not started yet!');
 }
+  
+async function sell() {
+	if(started>0){	
+
+    var tosend = parseFloat(document.getElementsByName('eggsforsale')[0].value*1000000);
+
+if(tosend>0){
+	
+  let contractInstance = await tronWeb.contract().at(contractAddress);
+	
+	let args = {
+		callValue: 0,
+      	feeLimit: 10000000,
+		shouldPollResponse: true
+	};
       
+let result = await contractInstance.eggsatmarket(tosend).send(args);
+      start();
+} else alert('Minimum is 0');
+}  
     
    async function withdraw() {
 	if(started>0){	
