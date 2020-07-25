@@ -647,8 +647,11 @@ let MyContract = await tronWeb.contract().at(contractAddress);
  
  	let res8=await MyContract.checkprize().call();
 			pot=round(res8/1000000000);
-			document.getElementById("todaypot").innerHTML=pot+' KGT';	
+			document.getElementById("todayprize").innerHTML=pot;	
 	
+		let res8a=await MyContract.checkroundnormalpot().call();
+			pot=round(res8a/1000000000);
+			document.getElementById("todaypool").innerHTML=pot;
 
 		let res10=await MyContract.soldtickets().call();
 			document.getElementById("soldtickets").innerHTML=res10;
