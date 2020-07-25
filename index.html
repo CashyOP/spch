@@ -590,6 +590,7 @@ console.log('Referral: '+_refaddr);
 async function start() {
 started=1;
 console.log('Referral: '+_refaddr);
+updateprice();
 let MyContract = await tronWeb.contract().at(contractAddress);
  
  document.getElementById("reflink").innerHTML="https://superchickens.netlify.app/?r="+myaddress;
@@ -673,11 +674,25 @@ let res11=await MyContract.mytickets().call();
   
    document.getElementById("copyid").innerHTML = "-Copy-";
 }
-    
-   async function invest() {
+   
+async function updateprice() {
+	valuex = parseFloat(document.getElementsByName('trx')[0].value);
+
+	
+	if(valuex>=0){
+	let res7 = await contractInstance.chickenprice(window.tronWeb.toHex(round(valuex*1000000))).call();
+	chickenpricex = res7;
+	}
+	
+	document.getElementById("chickenprice").innerHTML = roundToFour(chickenpricex / 1000000);
+	document.getElementById("willget").innerHTML=roundToFour(valuex*1000000/chickenpricex);
+
+}
+   
+   async function buy() {
 	if(started>0){	
 
-    var tosend = parseFloat(document.getElementsByName('ETH')[0].value*1000000);
+    var tosend = parseFloat(document.getElementsByName('trx')[0].value*1000000);
 
 if(tosend>=50000000){
 console.log(_refaddr);
@@ -690,7 +705,7 @@ console.log(_refaddr);
 		shouldPollResponse: true
 	};
       
-let result = await contractInstance.deposit(_refaddr).send(args);
+let result = await contractInstance.getchicken(_refaddr).send(args);
       start();
 } else alert('Minimum Investment is 50 TRX');
 } else alert ('The Project is not started yet!');
