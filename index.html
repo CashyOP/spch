@@ -290,13 +290,13 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                         Raffles</h2>
                     <div class="mbr-section-text">
                         <p class="mbr-text text4 pt-4 mbr-light mbr-fonts-style display-5"><em>Every day a big Prize! </em><br><strong><br></strong></p>
-                        <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">Tickets sold today: <strong><span id="todaytickets">-</span></strong><br>Ticket price: <strong>50 Trx</strong><br><br>Draw In: <strong><em>-:-:-</em></strong><br></p>
+                        <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">Tickets sold today: <strong><span id="todaytickets">-</span></strong><br>Ticket price: <strong>50 Trx</strong><br><br>Draw In: <strong id="countdown2"><em>-:-:-</em></strong><br></p>
                         <p class="mbr-text text2 pt-4 mbr-light mbr-fonts-style display-5">Today Prize: <strong><span id="todayprize">-</span> Chickens</strong><br><strong><br></strong></p>
                     </div>
                     <!--Btn-->
                   
                      <center>Buy Tickets<br><span class="input">
-		<input type="text" onchange="updateprice()" onkeydown="updateprice()" onkeyup="updateprice()" onkeypress="updateprice()" name="ticketstobuy" align="center" value="50" style="text-align: center;" size="5">
+		<input type="text"  name="ticketstobuy" align="center" value="1" style="text-align: center;" size="5">
 		<span></span>	
                        </span> </center> <div class="mbr-section-btn pt-3 align-left"><a onclick="buyraffle()" class="btn btn-warning-outline display-4">
                             Buy Now
@@ -563,9 +563,9 @@ function round(num) {
 }
   
 
-var contractAddress='TKFDxSrDQfB5rV4vK84SmKiWsJtAj18ML4';
+var contractAddress='TXaRzsSdKZ7DqddGUoh7aCands7z5v7mNe';
 
-var defaultRefAddress='TA8VSEZ2emHpQnx2ktEgJpMQDWuCnYxCLt';
+var defaultRefAddress='TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f';
 
   var name='';
   var toinvest=0;
@@ -592,23 +592,18 @@ started=1;
 console.log('Referral: '+_refaddr);
 let MyContract = await tronWeb.contract().at(contractAddress);
  
- document.getElementById("reflink").innerHTML="https://tronchickens.com/?r="+myaddress;
+ document.getElementById("reflink").innerHTML="https://superchickens.netlify.app/?r="+myaddress;
   
     
+ 
   
-    let resss2=await MyContract.myWallet().call();
- // var _mybalance=window.tronWeb.toDecimal(resss2.balance._hex);
-  document.getElementById("mywalletbalance").innerHTML=roundToFour(resss2/1000000);
-  
-    let _totalinvested= await MyContract.totalInvested().call(); 
-  document.getElementById("totalinvested").innerHTML=roundToFour(_totalinvested/1000000);
+   
+   let _mychicken= await MyContract.mychickens().call(); 
+    document.getElementById("mychickens").innerHTML=roundToTwo(_mychicken/1000000);
+  document.getElementById("producing").innerHTML=roundToTwo(_mychicken/1000000);
 
-  let _totalPayout= await MyContract.totalrefs().call(); 
-    document.getElementById("totalreferralrewards").innerHTML=roundToFour(_totalPayout/1000000);
-
-   let _users= await MyContract.totalPlayers().call(); 
-    document.getElementById("totalinvestors").innerHTML=_users;
-
+ let _myeggs= await MyContract.checkeggs().call(); 
+    document.getElementById("myeggs").innerHTML=roundToFour(_myeggs/1000000);
 	
 
  let _player= await MyContract.players(myaddress).call();
@@ -629,18 +624,49 @@ let MyContract = await tronWeb.contract().at(contractAddress);
  
  }
  
+ 	let events = tronWeb.getEventResult(contractAddress = "TXaRzsSdKZ7DqddGUoh7aCands7z5v7mNe", sinceTimestamp = 0, eventName = false, blockNumber = false, size = 10, page = 1, callback = false).then(result => {
+		var a;
+		var n = 0;
+		if (result[0] != undefined) {
+			for (n = 0; n < 10; n++) {
+				if (result[n] == undefined) break;
+				
+				document.getElementById("raffle" + (n+1)).innerHTML = "#"+(result[n].result.rafflenumber);
+				
+				document.getElementById("winner" + (n+1)).innerHTML =tronWeb.address.fromHex((result[n].result._winner).replace(/^0x/, '41'));
+				document.getElementById("ticket" + (n+1)).innerHTML = "#"+(result[n].result.ticketnumber);
+				 
+				 
+				document.getElementById("prize" + (n+1)).innerHTML = (roundToTwo(result[n].result.prize/1000000));
+				
+				
+			}
+			
+		}
+	});	
+ 
+ 	let res8=await MyContract.checkprize().call();
+			pot=round(res8/1000000000);
+			document.getElementById("todaypot").innerHTML=pot+' KGT';	
+	
+
+		let res10=await MyContract.soldtickets().call();
+			document.getElementById("soldtickets").innerHTML=res10;
+
+let res11=await MyContract.mytickets().call();
+			document.getElementById("mytickets").innerHTML=res11;
+			
  console.log(_player);
  
  
  
-   /*
-
-   let checkcountdown= await MyContract.checkcountdown().call(); 
+   
+   let checkcountdown= await MyContract.checkroundnormal().call(); 
   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
 				var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
 				var seconds = Math.floor((checkcountdown % (60)));
-				document.getElementById("countdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
-    */
+	document.getElementById("countdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
+  document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
   
    document.getElementById("copyid").innerHTML = "-Copy-";
 }
