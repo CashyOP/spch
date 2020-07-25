@@ -622,6 +622,15 @@ let MyContract = await tronWeb.contract().at(contractAddress);
   let _availprofit= await MyContract.myprofits().call();
  document.getElementById("withdrawable").innerHTML=roundToFour(window.tronWeb.toDecimal(_availprofit._hex)/1000000);
  
+  let _myeggsauction= await MyContract.checkMYeggsinmarket().call();
+ document.getElementById("myeggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_myeggsauction._hex)/1000000);
+ 
+  let _alleggsauction= await MyContract.checkeggsinmarket().call();
+ document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
+ 
+  
+ 
+ 
  
  }
  
@@ -653,6 +662,9 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 		let res8a=await MyContract.checkroundnormalpot().call();
 			pot=round(res8a/1000000);
 			document.getElementById("todaypool").innerHTML=pot;
+
+document.getElementById("myearning").innerHTML=roundToTwo(window.tronWeb.toDecimal((res8a/_alleggsauction*_myeggsauction)._hex)/1000000);
+
 
 		let res10=await MyContract.soldtickets().call();
 			document.getElementById("todaytickets").innerHTML=res10;
