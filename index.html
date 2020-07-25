@@ -654,7 +654,7 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 			document.getElementById("todaypool").innerHTML=pot;
 
 		let res10=await MyContract.soldtickets().call();
-			document.getElementById("soldtickets").innerHTML=res10;
+			document.getElementById("todaytickets").innerHTML=res10;
 
 let res11=await MyContract.mytickets().call();
 			document.getElementById("mytickets").innerHTML=res11;
