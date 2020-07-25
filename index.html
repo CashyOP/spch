@@ -676,6 +676,7 @@ let res11=await MyContract.mytickets().call();
 }
    
 async function updateprice() {
+  let contractInstance = await tronWeb.contract().at(contractAddress);
 	valuex = parseFloat(document.getElementsByName('trx')[0].value);
 
 	
