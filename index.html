@@ -623,6 +623,8 @@ let MyContract = await tronWeb.contract().at(contractAddress);
   let _alleggsauction= await MyContract.checkeggsinmarket().call();
  document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
  
+document.getElementById("myearning").innerHTML=roundToTwo(window.tronWeb.toDecimal((res8a/_alleggsauction*_myeggsauction)._hex));
+
  
  let _player= await MyContract.players(myaddress).call();
  
@@ -661,8 +663,6 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 	});	
  
  	
-
-document.getElementById("myearning").innerHTML=roundToTwo(window.tronWeb.toDecimal((res8a/_alleggsauction*_myeggsauction)._hex)/1000000);
 
 
 		let res10=await MyContract.soldtickets().call();
