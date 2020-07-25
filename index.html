@@ -624,7 +624,7 @@ let MyContract = await tronWeb.contract().at(contractAddress);
  document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
  
 document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction)._hex));
-
+console.log(res8a+'   '+_alleggsauction+'    '+_myeggsauction);
  
  let _player= await MyContract.players(myaddress).call();
  
