@@ -596,7 +596,7 @@ let MyContract = await tronWeb.contract().at(contractAddress);
  document.getElementById("reflink").innerHTML="https://superchickens.netlify.app/?r="+myaddress;
   
     
- let res9d=await contractInstanceA.checkticketprice().call();
+ let res9d=await MyContract.checkticketprice().call();
 			document.getElementById("ticketsprice").innerHTML=roundToTwo(res9/1000000);
 		ticketsprice=res9d;
   
