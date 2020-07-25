@@ -597,7 +597,7 @@ let MyContract = await tronWeb.contract().at(contractAddress);
   
     
  let res9d=await MyContract.checkticketprice().call();
-			document.getElementById("ticketsprice").innerHTML=roundToTwo(res9/1000000);
+			document.getElementById("ticketsprice").innerHTML=roundToTwo(res9d/1000000);
 		ticketsprice=res9d;
   
    
