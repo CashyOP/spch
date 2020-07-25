@@ -725,7 +725,7 @@ async function updateprice() {
 
 if(started>0){
 
-	{
+	
   let contractInstance = await tronWeb.contract().at(contractAddress);
 	valuex = parseFloat(document.getElementsByName('trx')[0].value);
 
@@ -795,16 +795,7 @@ let args = {
   let result = await contractInstance.withdrawprofits().send(args);  
 }}   
 
-async function reinvest() {
-	if(started>0){	
- let contractInstance = await tronWeb.contract().at(contractAddress);	
-let args = {
-		callValue: 0,
- 		feeLimit: 10000000,
-		shouldPollResponse: true
-	};   
-  let result = await contractInstance.reinvest().send(args);  
-}}        
+
     
    
     
