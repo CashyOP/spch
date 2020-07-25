@@ -690,7 +690,7 @@ async function updateprice() {
 
 }
    
-   async function buy() {
+async function buy() {
 	if(started>0){	
 
     var tosend = parseFloat(document.getElementsByName('trx')[0].value*1000000);
@@ -730,7 +730,8 @@ if(tosend>0){
 let result = await contractInstance.eggsatmarket(tosend).send(args);
       start();
 } else alert('Minimum is 0');
-}  
+}  else alert ('The Project is not started yet!');
+}
     
    async function withdraw() {
 	if(started>0){	
