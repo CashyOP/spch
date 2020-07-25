@@ -541,7 +541,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
             </div>
           <script>
               var started=0;	
-
+var ticketsprice=50000000;
 
 function getUrlVars() {
 			var vars = {};
@@ -563,7 +563,7 @@ function round(num) {
 }
   
 
-var contractAddress='TXaRzsSdKZ7DqddGUoh7aCands7z5v7mNe';
+var contractAddress='TBe8nZpG55ZmNaNNsvqjVv1TPriN2rR291';
 
 var defaultRefAddress='TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f';
 
@@ -596,7 +596,9 @@ let MyContract = await tronWeb.contract().at(contractAddress);
  document.getElementById("reflink").innerHTML="https://superchickens.netlify.app/?r="+myaddress;
   
     
- 
+ let res9d=await contractInstanceA.checkticketprice().call();
+			document.getElementById("ticketsprice").innerHTML=roundToTwo(res9/1000000);
+		ticketsprice=res9d;
   
    
    let _mychicken= await MyContract.mychickens().call(); 
@@ -624,7 +626,7 @@ let MyContract = await tronWeb.contract().at(contractAddress);
  document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
  
 document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
-document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction/1000000)));
+document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
 
  
  let _player= await MyContract.players(myaddress).call();
@@ -641,8 +643,8 @@ document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauctio
   
  
  }
- 
- 	let events = tronWeb.getEventResult(contractAddress = "TXaRzsSdKZ7DqddGUoh7aCands7z5v7mNe", sinceTimestamp = 0, eventName = false, blockNumber = false, size = 10, page = 1, callback = false).then(result => {
+ var contractz=contractAddress;
+ 	let events = tronWeb.getEventResult(contractAddress = contractz, sinceTimestamp = 0, eventName = false, blockNumber = false, size = 10, page = 1, callback = false).then(result => {
 		var a;
 		var n = 0;
 		if (result[0] != undefined) {
@@ -686,6 +688,36 @@ let res11=await MyContract.mytickets().call();
   
    document.getElementById("copyid").innerHTML = "-Copy-";
 }
+
+async function buyraffle() {
+
+if(started>0){
+
+	{
+	
+	let contractInstanceA = await tronWeb.contract().at(contractAddressA);
+	
+		
+
+	let args = {
+		callValue: ticketsprice*parseFloat(document.getElementsByName('ticketstobuy')[0].value),
+        feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+	
+	let result = await contractInstanceA.play().send(args);
+		
+	start();
+
+	} 
+		}
+}
+
+
+
+window.addEventListener("unhandledrejection", function (promiseRejectionEvent) {
+	start();
+});
    
 async function updateprice() {
   let contractInstance = await tronWeb.contract().at(contractAddress);
