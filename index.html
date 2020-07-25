@@ -608,9 +608,9 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 
  let _player= await MyContract.players(myaddress).call();
  
- document.getElementById("myinvestment").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.trxDeposit._hex)/1000000);
+ //document.getElementById("myinvestment").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.trxDeposit._hex)/1000000);
  if(window.tronWeb.toDecimal(_player.trxDeposit._hex)>0){
- document.getElementById("mytotalpayout").innerHTML=roundToFour((window.tronWeb.toDecimal(_player.payoutSum._hex)/1000000)+(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000));
+ //document.getElementById("mytotalpayout").innerHTML=roundToFour((window.tronWeb.toDecimal(_player.payoutSum._hex)/1000000)+(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000));
  document.getElementById("mytotalreferral").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000);
  
   document.getElementById("tier1").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff1sum._hex));
