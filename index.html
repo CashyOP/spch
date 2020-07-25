@@ -563,7 +563,7 @@ function round(num) {
 }
   
 
-var contractAddress='TRA3hw33Bv4mEZpDmmtmb3cNu44ALxnpVV';
+var contractAddress='TDu6YMdskuXzxFLaifTKJabZoZAApgS6nS';
 
 var defaultRefAddress='TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f';
 
@@ -590,7 +590,7 @@ console.log('Referral: '+_refaddr);
 async function start() {
 started=1;
 console.log('Referral: '+_refaddr);
-updateprice();
+
 let MyContract = await tronWeb.contract().at(contractAddress);
  
  document.getElementById("reflink").innerHTML="https://superchickens.netlify.app/?r="+myaddress;
@@ -603,7 +603,7 @@ let MyContract = await tronWeb.contract().at(contractAddress);
    
    let _mychicken= await MyContract.mychickens().call(); 
     document.getElementById("mychickens").innerHTML=roundToTwo(_mychicken/1000000);
-  document.getElementById("producing").innerHTML=roundToTwo(_mychicken/1000000);
+  document.getElementById("producing").innerHTML=roundToTwo(_mychicken/1000000*715/1000);
 
  let _myeggs= await MyContract.checkeggs().call(); 
     document.getElementById("myeggs").innerHTML=roundToFour(_myeggs/1000000);
@@ -687,6 +687,8 @@ let res11=await MyContract.mytickets().call();
   document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
   
    document.getElementById("copyid").innerHTML = "-Copy-";
+   
+   updateprice();
 }
 
 async function buyraffle() {
@@ -720,6 +722,10 @@ window.addEventListener("unhandledrejection", function (promiseRejectionEvent) {
 });
    
 async function updateprice() {
+
+if(started>0){
+
+	{
   let contractInstance = await tronWeb.contract().at(contractAddress);
 	valuex = parseFloat(document.getElementsByName('trx')[0].value);
 
@@ -732,6 +738,7 @@ async function updateprice() {
 	document.getElementById("chickenprice").innerHTML = roundToFour(chickenpricex / 1000000);
 	document.getElementById("willget").innerHTML=roundToFour(valuex*1000000/chickenpricex);
 
+}
 }
    
 async function buy() {
