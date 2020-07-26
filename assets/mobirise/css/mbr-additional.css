@@ -987,11 +987,15 @@ section.lazy-placeholder:after {
 }
 .cid-s5pusdGbfl {
   padding-top: 0px;
-  padding-bottom: 90px;
+  padding-bottom: 30px;
   background-color: #ffffff;
 }
 .cid-s5pusdGbfl P {
   color: #767676;
+}
+.cid-s5pusdGbfl .mbr-text,
+.cid-s5pusdGbfl .mbr-section-btn {
+  color: #9d8300;
 }
 .cid-s5nP7C6KQV {
   padding-top: 90px;

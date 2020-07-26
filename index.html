@@ -79,7 +79,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </div>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/e">how to make a site for free</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
+<section class="engine"><a href="https://mobirise.info/p">website templates free download</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
 
     
 
@@ -326,7 +326,9 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                 
                 <p class="mbr-text pb-3 mbr-fonts-style display-5">
                   Withdrawable Profits: <span id="withdrawable">-</span> TRX</p>
-                <div class="mbr-section-btn"><a onclick="withdraw()" class="btn btn-md btn-secondary-outline display-4">WITHDRAW</a></div>
+                
+                <div class="mbr-section-btn"><a onclick="withdraw()" class="btn btn-md btn-secondary-outline display-4">WITHDRAW</a>
+              </div><br>Withdrawed Profits: <span id="withdrawed">-</span> TRX<br>Referral Profits: <span id="referralxx">-</span> TRX
             </div>
         </div>
     </div>
@@ -624,7 +626,7 @@ function round(num) {
 }
   
 
-var contractAddress='TAuowmbunFXodeVuYwXkjHN7Q6aro9qeAc';
+var contractAddress='TAXpYGX5q2GrG6LWkJxFHwMW516megevh1';
 
 var defaultRefAddress='TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f';
 
@@ -695,8 +697,9 @@ document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauctio
  //document.getElementById("myinvestment").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.trxDeposit._hex)/1000000);
  if(window.tronWeb.toDecimal(_player.trxDeposit._hex)>0){
  //document.getElementById("mytotalpayout").innerHTML=roundToFour((window.tronWeb.toDecimal(_player.payoutSum._hex)/1000000)+(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000));
- document.getElementById("mytotalreferral").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000);
- 
+ document.getElementById("mytotalreferral").innerHTML=roundToTwo(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000);
+ document.getElementById("referralxx").innerHTML=roundToTwo(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000);
+   
   document.getElementById("tier1").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff1sum._hex));
   document.getElementById("tier2").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff2sum._hex));
   document.getElementById("tier3").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff3sum._hex));
@@ -744,6 +747,10 @@ let res11=await MyContract.mytickets().call();
    let res14=await MyContract.allprofits().call();
 			document.getElementById("allearned").innerHTML=round(res14/1000000);
   
+   
+  
+    let res15=await MyContract.allmyprofits().call();
+			document.getElementById("withdrawed").innerHTML=roundToTwo(res15/1000000);
   
  console.log(_player);
  
