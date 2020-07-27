@@ -79,7 +79,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </div>
 </section>
 
-<section class="engine"><a href="https://mobirise.info">Mobirise</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
+<section class="engine"><a href="https://mobirise.info/u">bootstrap responsive templates</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
 
     
 
@@ -610,7 +610,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                   
               <th class="head-item mbr-fonts-style display-7">
                       Wallet Address</th><th class="head-item mbr-fonts-style display-7">
-                      Referral Rewards</th></tr>
+                      Referral Rewards TRX</th></tr>
             </thead>
 
             <tbody>
@@ -756,15 +756,15 @@ document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauctio
  document.getElementById("refwinneraddr5").innerHTML =tronWeb.address.fromHex(refwinadd5.replace(/^0x/, '41'));
   
    let refwinamt1= await MyContract.topfivereferralamnt(1).call(); 
- document.getElementById("refwinneramnt1").innerHTML =round(refwinamt1);
+ document.getElementById("refwinneramnt1").innerHTML =round(refwinamt1/1000000);
     let refwinamt2= await MyContract.topfivereferralamnt(2).call(); 
- document.getElementById("refwinneramnt2").innerHTML =round(refwinamt2);
+ document.getElementById("refwinneramnt2").innerHTML =round(refwinamt2/1000000);
     let refwinamt3= await MyContract.topfivereferralamnt(3).call(); 
- document.getElementById("refwinneramnt3").innerHTML =round(refwinamt3);
+ document.getElementById("refwinneramnt3").innerHTML =round(refwinamt3/1000000);
     let refwinamt4= await MyContract.topfivereferralamnt(4).call(); 
- document.getElementById("refwinneramnt4").innerHTML =round(refwinamt4);
+ document.getElementById("refwinneramnt4").innerHTML =round(refwinamt4/1000000);
     let refwinamt5= await MyContract.topfivereferralamnt(5).call(); 
- document.getElementById("refwinneramnt5").innerHTML =round(refwinamt5);
+ document.getElementById("refwinneramnt5").innerHTML =round(refwinamt5/1000000);
   
  let _player= await MyContract.players(myaddress).call();
  
