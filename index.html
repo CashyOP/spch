@@ -79,12 +79,12 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </div>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/u">bootstrap website templates</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
+<section class="engine"><a href="https://mobirise.info/q">responsive website templates</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
 
     
 
     
-
+  <center id="installmetamask" style="color:Red; display:block;"><br><br><h3><a style="color:Red; font-style: italic; text-align: center;" href="https://www.tronlink.org/" target="_new">Please install/unlock your Tron wallet to start interacting.</a><br><a style="color:Red; font-style: italic;" href="https://www.tronlink.org/" target="_new"><br><br></a></h3>  </center>
     <div class="container pt-4 mt-2">
         
         
@@ -695,7 +695,7 @@ function round(num) {
 }
   
 
-var contractAddress='TYLcT5so4p3LWhC97mdPathpG7ZkBCKAhg';
+var contractAddress='TMmP94KaHSnPYKwJyHkjWWPzRK3YVpeDRk';
 
 var defaultRefAddress='TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f';
 
@@ -725,7 +725,7 @@ console.log('Referral: '+_refaddr);
 
 let MyContract = await tronWeb.contract().at(contractAddress);
  
- document.getElementById("reflink").innerHTML="https://superchickens.netlify.app/?r="+myaddress;
+ document.getElementById("reflink").innerHTML="https://superchickens.net/?r="+myaddress;
   
     
  let res9d=await MyContract.checkticketprice().call();
@@ -1035,7 +1035,7 @@ accountInterval2 = setInterval(function () {
 	if (typeof window.tronWeb !== 'undefined'){		
 
   if(tronWeb.defaultAddress.base58 != false){
-//document.getElementById("installmetamask").style.display = "none";
+document.getElementById("installmetamask").style.display = "none";
   console.log('started');
    start();
 }}
