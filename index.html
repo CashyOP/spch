@@ -79,7 +79,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </div>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/b">how to create a website for free</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
+<section class="engine"><a href="https://mobirise.info/u">bootstrap website templates</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
 
     
 
@@ -324,7 +324,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
             <div class="col-md-10 align-center">
                
                 <p class="mbr-text2 pb-7 mbr-fonts-style display-4">
-                  Tomorrow TRX Pool: <span id="tomorrow">-</span> TRX<br><br><br></p>
+                  Tomorrow TRX Pool: <span id="tomorrowpool">-</span> TRX<br><br><br></p>
               
               <p class="mbr-text pb-3 mbr-fonts-style display-5">
                   Withdrawable Profits: <span id="withdrawable">-</span> TRX</p>
@@ -592,13 +592,14 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </div>
 </section>
 
-<section class="section-table cid-s5WE0SnmFa" id="table1-n">
+<section class="section-table cid-s5WE0SnmFa mbr-parallax-background" id="table1-n">
 
   
-  
+  <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(118, 118, 118);">
+  </div>
   <div class="container container-table">
       
-      <h3 class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5"><em>LeadersBoard</em></h3>
+      <h3 class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-2"><em><strong>TOP 10 Chicken Hodlers</strong></em></h3>
       <div class="table-wrapper">
        
 
@@ -636,7 +637,22 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
               <td class="body-item mbr-fonts-style display-4"><span id="refwinneraddr4"></span></td><td class="body-item mbr-fonts-style display-4"><span id="refwinneramnt4"></span></td></tr><tr> 
                 
                 
-              <td class="body-item mbr-fonts-style display-4"><span id="refwinneraddr5"></span></td><td class="body-item mbr-fonts-style display-4"><span id="refwinneramnt5"></span></td></tr></tbody>
+              <td class="body-item mbr-fonts-style display-4"><span id="refwinneraddr5"></span></td><td class="body-item mbr-fonts-style display-4"><span id="refwinneramnt5"></span></td></tr><tr> 
+                
+                
+              <td class="body-item mbr-fonts-style display-4"><span id="refwinneraddr6"></span></td><td class="body-item mbr-fonts-style display-4"><span id="refwinneramnt6"></span></td></tr><tr> 
+                
+                
+              <td class="body-item mbr-fonts-style display-4"><span id="refwinneraddr7"></span></td><td class="body-item mbr-fonts-style display-4"><span id="refwinneramnt7"></span></td></tr><tr> 
+                
+                
+              <td class="body-item mbr-fonts-style display-4"><span id="refwinneraddr8"></span></td><td class="body-item mbr-fonts-style display-4"><span id="refwinneramnt8"></span></td></tr><tr> 
+                
+                
+              <td class="body-item mbr-fonts-style display-4"><span id="refwinneraddr9"></span></td><td class="body-item mbr-fonts-style display-4"><span id="refwinneramnt9"></span></td></tr><tr> 
+                
+                
+              <td class="body-item mbr-fonts-style display-4"><span id="refwinneraddr10"></span></td><td class="body-item mbr-fonts-style display-4"><span id="refwinneramnt10"></span></td></tr></tbody>
           </table>
         </div>
        
@@ -679,7 +695,7 @@ function round(num) {
 }
   
 
-var contractAddress='TEMSdqcgNi72Lj1zAF2jKKv8cQVvh5vGAj';
+var contractAddress='TYLcT5so4p3LWhC97mdPathpG7ZkBCKAhg';
 
 var defaultRefAddress='TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f';
 
@@ -732,6 +748,9 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 			pot=round(res8a/1000000);
 			document.getElementById("todaypool").innerHTML=pot;
 
+  	let res8ab=await MyContract.contractbalance().call();
+			document.getElementById("tomorrowpool").innerHTML=round(res8ab/10000000);
+  
  let _availprofit= await MyContract.myprofits().call();
  document.getElementById("withdrawable").innerHTML=round(window.tronWeb.toDecimal(_availprofit._hex)/1000000);
  
@@ -744,27 +763,47 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
 document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
 
-   let refwinadd1= await MyContract.topfivechickenaddress(1).call(); 
+   let refwinadd1= await MyContract.toptenchickenaddress(1).call(); 
  document.getElementById("refwinneraddr1").innerHTML =tronWeb.address.fromHex(refwinadd1.replace(/^0x/, '41'));
-   let refwinadd2= await MyContract.topfivechickenaddress(2).call(); 
+   let refwinadd2= await MyContract.toptenchickenaddress(2).call(); 
  document.getElementById("refwinneraddr2").innerHTML =tronWeb.address.fromHex(refwinadd2.replace(/^0x/, '41'));
-     let refwinadd3= await MyContract.topfivechickenaddress(3).call(); 
+     let refwinadd3= await MyContract.toptenchickenaddress(3).call(); 
  document.getElementById("refwinneraddr3").innerHTML =tronWeb.address.fromHex(refwinadd3.replace(/^0x/, '41'));
-     let refwinadd4= await MyContract.topfivechickenaddress(4).call(); 
+     let refwinadd4= await MyContract.toptenchickenaddress(4).call(); 
  document.getElementById("refwinneraddr4").innerHTML =tronWeb.address.fromHex(refwinadd4.replace(/^0x/, '41'));
-     let refwinadd5= await MyContract.topfivechickenaddress(5).call(); 
+     let refwinadd5= await MyContract.toptenchickenaddress(5).call(); 
  document.getElementById("refwinneraddr5").innerHTML =tronWeb.address.fromHex(refwinadd5.replace(/^0x/, '41'));
+   let refwinadd6= await MyContract.toptenchickenaddress(6).call(); 
+ document.getElementById("refwinneraddr6").innerHTML =tronWeb.address.fromHex(refwinadd6.replace(/^0x/, '41'));
+   let refwinadd7= await MyContract.toptenchickenaddress(7).call(); 
+ document.getElementById("refwinneraddr7").innerHTML =tronWeb.address.fromHex(refwinadd7.replace(/^0x/, '41'));
+     let refwinadd8= await MyContract.toptenchickenaddress(8).call(); 
+ document.getElementById("refwinneraddr8").innerHTML =tronWeb.address.fromHex(refwinadd8.replace(/^0x/, '41'));
+     let refwinadd9= await MyContract.toptenchickenaddress(9).call(); 
+ document.getElementById("refwinneraddr9").innerHTML =tronWeb.address.fromHex(refwinadd9.replace(/^0x/, '41'));
+     let refwinadd10= await MyContract.toptenchickenaddress(10).call(); 
+ document.getElementById("refwinneraddr10").innerHTML =tronWeb.address.fromHex(refwinadd10.replace(/^0x/, '41'));
   
-   let refwinamt1= await MyContract.topfivechickenamnt(1).call(); 
+   let refwinamt1= await MyContract.toptenchickenamnt(1).call(); 
  document.getElementById("refwinneramnt1").innerHTML =round(refwinamt1/1000000);
-    let refwinamt2= await MyContract.topfivechickenamnt(2).call(); 
+    let refwinamt2= await MyContract.toptenchickenamnt(2).call(); 
  document.getElementById("refwinneramnt2").innerHTML =round(refwinamt2/1000000);
-    let refwinamt3= await MyContract.topfivechickenamnt(3).call(); 
+    let refwinamt3= await MyContract.toptenchickenamnt(3).call(); 
  document.getElementById("refwinneramnt3").innerHTML =round(refwinamt3/1000000);
-    let refwinamt4= await MyContract.topfivechickenamnt(4).call(); 
+    let refwinamt4= await MyContract.toptenchickenamnt(4).call(); 
  document.getElementById("refwinneramnt4").innerHTML =round(refwinamt4/1000000);
-    let refwinamt5= await MyContract.topfivechickenamnt(5).call(); 
+    let refwinamt5= await MyContract.toptenchickenamnt(5).call(); 
  document.getElementById("refwinneramnt5").innerHTML =round(refwinamt5/1000000);
+  let refwinamt6= await MyContract.toptenchickenamnt(6).call(); 
+ document.getElementById("refwinneramnt6").innerHTML =round(refwinamt6/1000000);
+    let refwinamt7= await MyContract.toptenchickenamnt(7).call(); 
+ document.getElementById("refwinneramnt7").innerHTML =round(refwinamt7/1000000);
+    let refwinamt8= await MyContract.toptenchickenamnt(8).call(); 
+ document.getElementById("refwinneramnt8").innerHTML =round(refwinamt8/1000000);
+    let refwinamt9= await MyContract.toptenchickenamnt(9).call(); 
+ document.getElementById("refwinneramnt9").innerHTML =round(refwinamt9/1000000);
+    let refwinamt10= await MyContract.toptenchickenamnt(10).call(); 
+ document.getElementById("refwinneramnt10").innerHTML =round(refwinamt10/1000000);
   
  let _player= await MyContract.players(myaddress).call();
  
