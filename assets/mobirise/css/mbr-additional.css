@@ -936,7 +936,7 @@ section.lazy-placeholder:after {
 }
 .cid-s5nzCUPph9 {
   padding-top: 0px;
-  padding-bottom: 45px;
+  padding-bottom: 0px;
   background-color: #ffffff;
 }
 .cid-s5nzCUPph9 .pricing {
@@ -995,7 +995,17 @@ section.lazy-placeholder:after {
 }
 .cid-s5pusdGbfl .mbr-text,
 .cid-s5pusdGbfl .mbr-section-btn {
-  color: #9d8300;
+  color: #232323;
+}
+.cid-s5pusdGbfl .mbr-text2,
+.cid-s5pusdGbfl .mbr-section-btn {
+  color: #099b00;
+}
+.cid-s5pusdGbfl .mbr-text2 {
+  color: #099b00;
+}
+.cid-s5pusdGbfl .mbr-text {
+  color: #149dcc;
 }
 .cid-s5nP7C6KQV {
   padding-top: 90px;
@@ -1315,6 +1325,91 @@ section.lazy-placeholder:after {
 }
 .cid-s5nEj6zChN DIV {
   text-align: left;
+}
+.cid-s5WE0SnmFa {
+  padding-top: 0px;
+  padding-bottom: 90px;
+  background-color: #f9f9f9;
+}
+.cid-s5WE0SnmFa .mbr-section-subtitle {
+  color: #767676;
+}
+.cid-s5WE0SnmFa .container-table {
+  margin: 0 auto;
+}
+.cid-s5WE0SnmFa .scroll {
+  overflow-x: auto;
+  padding: 0;
+}
+.cid-s5WE0SnmFa .dataTables_wrapper {
+  display: block;
+}
+.cid-s5WE0SnmFa .dataTables_wrapper .search {
+  margin-bottom: .5rem;
+}
+.cid-s5WE0SnmFa .dataTables_wrapper .table {
+  overflow-x: auto;
+}
+.cid-s5WE0SnmFa table {
+  width: 100% !important;
+  margin-top: 6px;
+  border: 1px solid #cccccc;
+  margin-bottom: 0;
+}
+.cid-s5WE0SnmFa table th {
+  border-top: none;
+  transition: all .2s;
+  border-bottom: none;
+}
+.cid-s5WE0SnmFa table th:hover {
+  background: #cccccc;
+  color: #000000;
+}
+.cid-s5WE0SnmFa table td {
+  border-top: 1px solid #cccccc;
+}
+.cid-s5WE0SnmFa table.table {
+  background: #ffffff;
+}
+.cid-s5WE0SnmFa .dataTables_filter {
+  text-align: right;
+  margin-bottom: .5rem;
+}
+.cid-s5WE0SnmFa .dataTables_filter label {
+  display: inline;
+  white-space: normal !important;
+}
+.cid-s5WE0SnmFa .dataTables_filter input {
+  display: inline;
+  width: auto;
+  margin-left: .5rem;
+  border-radius: 100px;
+  padding-left: 1rem;
+}
+.cid-s5WE0SnmFa .dataTables_info {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  white-space: normal !important;
+}
+@media (max-width: 992px) {
+  .cid-s5WE0SnmFa .dataTables_filter {
+    text-align: center;
+  }
+}
+@media (max-width: 350px) {
+  .cid-s5WE0SnmFa .dataTables_filter {
+    text-align: center;
+  }
+  .cid-s5WE0SnmFa .dataTables_filter input {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+.cid-s5WE0SnmFa .head-item {
+  text-align: center;
+}
+.cid-s5WE0SnmFa .body-item {
+  text-align: center;
 }
 .cid-s5nGOZ6ise {
   padding-top: 45px;
