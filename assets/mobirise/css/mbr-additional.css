@@ -1411,6 +1411,18 @@ section.lazy-placeholder:after {
 .cid-s5WE0SnmFa .body-item {
   text-align: center;
 }
+.cid-s5Y8ljOJty {
+  padding-top: 60px;
+  padding-bottom: 15px;
+  background: linear-gradient(0deg, #ffffff, #cccccc);
+}
+.cid-s5Y8ljOJty .mbr-iconfont-social {
+  font-size: 32px;
+  color: #0f7699;
+}
+.cid-s5Y8ljOJty .social-list a:focus {
+  text-decoration: none;
+}
 .cid-s5nGOZ6ise {
   padding-top: 45px;
   padding-bottom: 0px;
