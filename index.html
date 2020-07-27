@@ -79,7 +79,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </div>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/r">bootstrap templates</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
+<section class="engine"><a href="https://mobirise.info/e">make your own site for free</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
 
     
 
@@ -744,9 +744,28 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
 document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
 
-   let aaaaaa= await MyContract.topfiveinvestaddress(1).call(); 
-  console.log(aaaaaa);
- 
+   let refwinadd1= await MyContract.topfivereferraladdress(1).call(); 
+ document.getElementById("refwinneraddr1").innerHTML =tronWeb.address.fromHex(refwinadd1.replace(/^0x/, '41'));
+   let refwinadd2= await MyContract.topfivereferraladdress(2).call(); 
+ document.getElementById("refwinneraddr2").innerHTML =tronWeb.address.fromHex(refwinadd2.replace(/^0x/, '41'));
+     let refwinadd3= await MyContract.topfivereferraladdress(3).call(); 
+ document.getElementById("refwinneraddr3").innerHTML =tronWeb.address.fromHex(refwinadd3.replace(/^0x/, '41'));
+     let refwinadd4= await MyContract.topfivereferraladdress(4).call(); 
+ document.getElementById("refwinneraddr4").innerHTML =tronWeb.address.fromHex(refwinadd4.replace(/^0x/, '41'));
+     let refwinadd5= await MyContract.topfivereferraladdress(5).call(); 
+ document.getElementById("refwinneraddr5").innerHTML =tronWeb.address.fromHex(refwinadd5.replace(/^0x/, '41'));
+  
+   let refwinamt1= await MyContract.topfivereferralamnt(1).call(); 
+ document.getElementById("refwinneramnt1").innerHTML =round(refwinamt1);
+    let refwinamt2= await MyContract.topfivereferralamnt(1).call(); 
+ document.getElementById("refwinneramnt2").innerHTML =round(refwinamt2);
+    let refwinamt3= await MyContract.topfivereferralamnt(1).call(); 
+ document.getElementById("refwinneramnt3").innerHTML =round(refwinamt3);
+    let refwinamt4= await MyContract.topfivereferralamnt(1).call(); 
+ document.getElementById("refwinneramnt4").innerHTML =round(refwinamt4);
+    let refwinamt5= await MyContract.topfivereferralamnt(1).call(); 
+ document.getElementById("refwinneramnt5").innerHTML =round(refwinamt5);
+  
  let _player= await MyContract.players(myaddress).call();
  
  //document.getElementById("myinvestment").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.trxDeposit._hex)/1000000);
