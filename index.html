@@ -80,7 +80,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </div>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/b">create a site</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
+<section class="engine"><a href="https://mobirise.info/f">simple website creator</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
 
     
 
@@ -114,11 +114,11 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                         <div class="panel-item p-4 d-flex align-items-center">
                             <div class="card-img pr-3 d-flex align-items-center align-left">
                                 
-                                <h3 class="py-3 mbr-fonts-style display-2"><span id="soldeggs">-</span></h3>
+                                <h3 class="py-3 mbr-fonts-style display-2"><span id="playersxxx">-</span></h3>
                             </div>
                             <div class="card-text">
                                 
-                                <p class="mbr-content-text mbr-fonts-style display-5"><em>Eggs Sold</em></p>
+                                <p class="mbr-content-text mbr-fonts-style display-5"><em>Players</em></p>
                             </div>
                         </div>
                     </div>
@@ -887,10 +887,10 @@ let res11=await MyContract.mytickets().call();
 			document.getElementById("mytickets").innerHTML=res11;
 		
   let res12=await MyContract.circulatingchickens().call();
-			document.getElementById("circulatingchickens").innerHTML=roundToTwo(res12/1000000);
+			document.getElementById("circulatingchickens").innerHTML=round(res12/1000000);
   
-  let res13=await MyContract.soldeggs().call();
-			document.getElementById("soldeggs").innerHTML=roundToTwo(res13/1000000);
+  let res13=await MyContract.totalPlayers().call();
+			document.getElementById("playersxxx").innerHTML=res13;
   
    let res14=await MyContract.allprofits().call();
 			document.getElementById("allearned").innerHTML=round(res14/1000000);
