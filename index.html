@@ -79,7 +79,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </div>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/k">develop own website</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
+<section class="engine"><a href="https://mobirise.info/j">website templates</a></section><section class="counters3 counters cid-s5RgntJCrV" id="counters3-m">
 
     
 
@@ -744,6 +744,8 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
 document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
 
+   let aaaaaa= await MyContract.topfiveinvestaddress().call(); 
+  console.log(aaaaaa);
  
  let _player= await MyContract.players(myaddress).call();
  
