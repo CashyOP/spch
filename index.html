@@ -88,7 +88,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/p">site templates free download</a></section><section class="header6 cid-s5YzDKRyxK mbr-fullscreen mbr-parallax-background" id="header6-28">
+<section class="engine"><a href="https://mobirise.info/m">website design templates</a></section><section class="header6 cid-s5YzDKRyxK mbr-fullscreen mbr-parallax-background" id="header6-28">
 
    
   
@@ -159,7 +159,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                             </div>
                             <div class="card-text">
                                 
-                                <p class="mbr-content-text mbr-fonts-style display-5"><em>Users</em></p>
+                                <p class="mbr-content-text mbr-fonts-style display-5"><em>Players</em></p>
                             </div>
                         </div>
                     </div>
@@ -792,29 +792,12 @@ console.log('Referral: '+_refaddr);
 
  
 
-var counterxxx=10;
+
 
     
 async function start() {
 started=1;
 console.log('Referral: '+_refaddr);
-
-  counterxxx+=1;
-  
-  
-  
-  let _myeggs= await MyContract.checkeggs().call(); 
-    document.getElementById("myeggs").innerHTML=roundToFour(_myeggs/1000000);
-  
-   let checkcountdown= await MyContract.checkroundnormal().call(); 
-  var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
-				var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
-				var seconds = Math.floor((checkcountdown % (60)));
-	document.getElementById("countdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
-  document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
-  
-  if(counterxxx>10){
-    counterxxx=0;
 
 let MyContract = await tronWeb.contract().at(contractAddress);
  
@@ -830,7 +813,8 @@ let MyContract = await tronWeb.contract().at(contractAddress);
     document.getElementById("mychickens").innerHTML=roundToFour(_mychicken/1000000);
   document.getElementById("producing").innerHTML=roundToFour(_mychicken/1000000*715/1000);
 
-
+ let _myeggs= await MyContract.checkeggs().call(); 
+    document.getElementById("myeggs").innerHTML=roundToFour(_myeggs/1000000);
 	
 	let res8=await MyContract.checkprize().call();
 			pot=roundToFour(res8/1000000);
@@ -855,7 +839,47 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
 document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
 
-   
+   let refwinadd1= await MyContract.toptenchickenaddress(1).call(); 
+ document.getElementById("refwinneraddr1").innerHTML =tronWeb.address.fromHex(refwinadd1.replace(/^0x/, '41'));
+   let refwinadd2= await MyContract.toptenchickenaddress(2).call(); 
+ document.getElementById("refwinneraddr2").innerHTML =tronWeb.address.fromHex(refwinadd2.replace(/^0x/, '41'));
+     let refwinadd3= await MyContract.toptenchickenaddress(3).call(); 
+ document.getElementById("refwinneraddr3").innerHTML =tronWeb.address.fromHex(refwinadd3.replace(/^0x/, '41'));
+     let refwinadd4= await MyContract.toptenchickenaddress(4).call(); 
+ document.getElementById("refwinneraddr4").innerHTML =tronWeb.address.fromHex(refwinadd4.replace(/^0x/, '41'));
+     let refwinadd5= await MyContract.toptenchickenaddress(5).call(); 
+ document.getElementById("refwinneraddr5").innerHTML =tronWeb.address.fromHex(refwinadd5.replace(/^0x/, '41'));
+   let refwinadd6= await MyContract.toptenchickenaddress(6).call(); 
+ document.getElementById("refwinneraddr6").innerHTML =tronWeb.address.fromHex(refwinadd6.replace(/^0x/, '41'));
+   let refwinadd7= await MyContract.toptenchickenaddress(7).call(); 
+ document.getElementById("refwinneraddr7").innerHTML =tronWeb.address.fromHex(refwinadd7.replace(/^0x/, '41'));
+     let refwinadd8= await MyContract.toptenchickenaddress(8).call(); 
+ document.getElementById("refwinneraddr8").innerHTML =tronWeb.address.fromHex(refwinadd8.replace(/^0x/, '41'));
+     let refwinadd9= await MyContract.toptenchickenaddress(9).call(); 
+ document.getElementById("refwinneraddr9").innerHTML =tronWeb.address.fromHex(refwinadd9.replace(/^0x/, '41'));
+     let refwinadd10= await MyContract.toptenchickenaddress(10).call(); 
+ document.getElementById("refwinneraddr10").innerHTML =tronWeb.address.fromHex(refwinadd10.replace(/^0x/, '41'));
+  
+   let refwinamt1= await MyContract.toptenchickenamnt(1).call(); 
+ document.getElementById("refwinneramnt1").innerHTML =round(refwinamt1/1000000);
+    let refwinamt2= await MyContract.toptenchickenamnt(2).call(); 
+ document.getElementById("refwinneramnt2").innerHTML =round(refwinamt2/1000000);
+    let refwinamt3= await MyContract.toptenchickenamnt(3).call(); 
+ document.getElementById("refwinneramnt3").innerHTML =round(refwinamt3/1000000);
+    let refwinamt4= await MyContract.toptenchickenamnt(4).call(); 
+ document.getElementById("refwinneramnt4").innerHTML =round(refwinamt4/1000000);
+    let refwinamt5= await MyContract.toptenchickenamnt(5).call(); 
+ document.getElementById("refwinneramnt5").innerHTML =round(refwinamt5/1000000);
+  let refwinamt6= await MyContract.toptenchickenamnt(6).call(); 
+ document.getElementById("refwinneramnt6").innerHTML =round(refwinamt6/1000000);
+    let refwinamt7= await MyContract.toptenchickenamnt(7).call(); 
+ document.getElementById("refwinneramnt7").innerHTML =round(refwinamt7/1000000);
+    let refwinamt8= await MyContract.toptenchickenamnt(8).call(); 
+ document.getElementById("refwinneramnt8").innerHTML =round(refwinamt8/1000000);
+    let refwinamt9= await MyContract.toptenchickenamnt(9).call(); 
+ document.getElementById("refwinneramnt9").innerHTML =round(refwinamt9/1000000);
+    let refwinamt10= await MyContract.toptenchickenamnt(10).call(); 
+ document.getElementById("refwinneramnt10").innerHTML =round(refwinamt10/1000000);
   
  let _player= await MyContract.players(myaddress).call();
  
@@ -922,54 +946,16 @@ let res11=await MyContract.mytickets().call();
  
  
    
-  
+   let checkcountdown= await MyContract.checkroundnormal().call(); 
+  var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
+				var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
+				var seconds = Math.floor((checkcountdown % (60)));
+	document.getElementById("countdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
+  document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
   
    document.getElementById("copyid").innerHTML = "-Copy-";
    
    updateprice();
-    
-    let refwinadd1= await MyContract.toptenchickenaddress(1).call(); 
- document.getElementById("refwinneraddr1").innerHTML =tronWeb.address.fromHex(refwinadd1.replace(/^0x/, '41'));
-   let refwinadd2= await MyContract.toptenchickenaddress(2).call(); 
- document.getElementById("refwinneraddr2").innerHTML =tronWeb.address.fromHex(refwinadd2.replace(/^0x/, '41'));
-     let refwinadd3= await MyContract.toptenchickenaddress(3).call(); 
- document.getElementById("refwinneraddr3").innerHTML =tronWeb.address.fromHex(refwinadd3.replace(/^0x/, '41'));
-     let refwinadd4= await MyContract.toptenchickenaddress(4).call(); 
- document.getElementById("refwinneraddr4").innerHTML =tronWeb.address.fromHex(refwinadd4.replace(/^0x/, '41'));
-     let refwinadd5= await MyContract.toptenchickenaddress(5).call(); 
- document.getElementById("refwinneraddr5").innerHTML =tronWeb.address.fromHex(refwinadd5.replace(/^0x/, '41'));
-   let refwinadd6= await MyContract.toptenchickenaddress(6).call(); 
- document.getElementById("refwinneraddr6").innerHTML =tronWeb.address.fromHex(refwinadd6.replace(/^0x/, '41'));
-   let refwinadd7= await MyContract.toptenchickenaddress(7).call(); 
- document.getElementById("refwinneraddr7").innerHTML =tronWeb.address.fromHex(refwinadd7.replace(/^0x/, '41'));
-     let refwinadd8= await MyContract.toptenchickenaddress(8).call(); 
- document.getElementById("refwinneraddr8").innerHTML =tronWeb.address.fromHex(refwinadd8.replace(/^0x/, '41'));
-     let refwinadd9= await MyContract.toptenchickenaddress(9).call(); 
- document.getElementById("refwinneraddr9").innerHTML =tronWeb.address.fromHex(refwinadd9.replace(/^0x/, '41'));
-     let refwinadd10= await MyContract.toptenchickenaddress(10).call(); 
- document.getElementById("refwinneraddr10").innerHTML =tronWeb.address.fromHex(refwinadd10.replace(/^0x/, '41'));
-  
-   let refwinamt1= await MyContract.toptenchickenamnt(1).call(); 
- document.getElementById("refwinneramnt1").innerHTML =round(refwinamt1/1000000);
-    let refwinamt2= await MyContract.toptenchickenamnt(2).call(); 
- document.getElementById("refwinneramnt2").innerHTML =round(refwinamt2/1000000);
-    let refwinamt3= await MyContract.toptenchickenamnt(3).call(); 
- document.getElementById("refwinneramnt3").innerHTML =round(refwinamt3/1000000);
-    let refwinamt4= await MyContract.toptenchickenamnt(4).call(); 
- document.getElementById("refwinneramnt4").innerHTML =round(refwinamt4/1000000);
-    let refwinamt5= await MyContract.toptenchickenamnt(5).call(); 
- document.getElementById("refwinneramnt5").innerHTML =round(refwinamt5/1000000);
-  let refwinamt6= await MyContract.toptenchickenamnt(6).call(); 
- document.getElementById("refwinneramnt6").innerHTML =round(refwinamt6/1000000);
-    let refwinamt7= await MyContract.toptenchickenamnt(7).call(); 
- document.getElementById("refwinneramnt7").innerHTML =round(refwinamt7/1000000);
-    let refwinamt8= await MyContract.toptenchickenamnt(8).call(); 
- document.getElementById("refwinneramnt8").innerHTML =round(refwinamt8/1000000);
-    let refwinamt9= await MyContract.toptenchickenamnt(9).call(); 
- document.getElementById("refwinneramnt9").innerHTML =round(refwinamt9/1000000);
-    let refwinamt10= await MyContract.toptenchickenamnt(10).call(); 
- document.getElementById("refwinneramnt10").innerHTML =round(refwinamt10/1000000);
-}
 }
 
 async function buyraffle() {
@@ -989,7 +975,7 @@ if(started>0){
 	};
 	
 	let result = await contractInstanceA.play().send(args);
-		counterxxx=10;
+		
 	start();
 
 	} 
@@ -1039,7 +1025,6 @@ console.log(_refaddr);
 	};
       
 let result = await contractInstance.getchicken(_refaddr).send(args);
-  counterxxx=10;
       start();
 } else alert('Minimum Investment is 50 TRX');
 } else alert ('The Project is not started yet!');
@@ -1061,7 +1046,6 @@ if(tosend>0){
 	};
       
 let result = await contractInstance.eggsatmarket(tosend).send(args);
-  counterxxx=10;
       start();
 } else alert('Minimum is 0');
 }  else alert ('The Project is not started yet!');
@@ -1076,8 +1060,6 @@ let args = {
 		shouldPollResponse: true
 	};   
   let result = await contractInstance.withdrawprofits().send(args);  
-      counterxxx=10;
-      start();
 }}   
 
 
@@ -1133,10 +1115,7 @@ document.getElementById("installmetamask").style.display = "none";
   console.log('started');
    start();
 }}
-}, 1000);  
-            
-
-            
+}, 2000);   
   </script>
           
         </div>
