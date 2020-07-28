@@ -801,7 +801,7 @@ console.log('Referral: '+_refaddr);
 
   counterxxx+=1;
   
-  
+  let MyContract = await tronWeb.contract().at(contractAddress);
   
   let _myeggs= await MyContract.checkeggs().call(); 
     document.getElementById("myeggs").innerHTML=roundToFour(_myeggs/1000000);
@@ -816,7 +816,7 @@ console.log('Referral: '+_refaddr);
   if(counterxxx>10){
     counterxxx=0;
 
-let MyContract = await tronWeb.contract().at(contractAddress);
+
  
  document.getElementById("reflink").innerHTML="https://superchickens.net/?r="+myaddress;
   
