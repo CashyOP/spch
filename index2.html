@@ -88,7 +88,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/u">bootstrap html templates</a></section><section class="header6 cid-s5YzDKRyxK mbr-fullscreen mbr-parallax-background" id="header6-28">
+<section class="engine"><a href="https://mobirise.info/e">how to make a website</a></section><section class="header6 cid-s5YzDKRyxK mbr-fullscreen mbr-parallax-background" id="header6-28">
 
    
   
@@ -792,15 +792,20 @@ console.log('Referral: '+_refaddr);
 
  
 
-var counterxxx=10;
+var counterxxx=30;
+var counterlight=5;
+            
 
     
 async function start() {
 started=1;
-console.log('Referral: '+_refaddr);
+
 
   counterxxx+=1;
+  counterlight+=1;
   
+  if(counterlight>5||counterxxx>30){
+    counterlight=0;
   let MyContract = await tronWeb.contract().at(contractAddress);
   
   let _myeggs= await MyContract.checkeggs().call(); 
@@ -813,7 +818,7 @@ console.log('Referral: '+_refaddr);
 	document.getElementById("countdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
   document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
   
-  if(counterxxx>10){
+  if(counterxxx>30){
     counterxxx=0;
 
 
@@ -971,6 +976,7 @@ let res11=await MyContract.mytickets().call();
  document.getElementById("refwinneramnt10").innerHTML =round(refwinamt10/1000000);
 }
 }
+}
 
 async function buyraffle() {
 
@@ -989,7 +995,7 @@ if(started>0){
 	};
 	
 	let result = await contractInstanceA.play().send(args);
-		counterxxx=10;
+		counterxxx=50;
 	start();
 
 	} 
@@ -1039,7 +1045,7 @@ console.log(_refaddr);
 	};
       
 let result = await contractInstance.getchicken(_refaddr).send(args);
-  counterxxx=10;
+  counterxxx=50;
       start();
 } else alert('Minimum Investment is 50 TRX');
 } else alert ('The Project is not started yet!');
@@ -1061,7 +1067,7 @@ if(tosend>0){
 	};
       
 let result = await contractInstance.eggsatmarket(tosend).send(args);
-  counterxxx=10;
+  counterxxx=50;
       start();
 } else alert('Minimum is 0');
 }  else alert ('The Project is not started yet!');
@@ -1076,7 +1082,7 @@ let args = {
 		shouldPollResponse: true
 	};   
   let result = await contractInstance.withdrawprofits().send(args);  
-      counterxxx=10;
+      counterxxx=50;
       start();
 }}   
 
