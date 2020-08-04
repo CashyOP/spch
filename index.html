@@ -871,10 +871,42 @@ started=1;
 document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
 document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
 
-   
+  
   
  let _player= await MyContract.players(myaddress).call();
+
  
+		let res10=await MyContract.soldtickets().call();
+			document.getElementById("todaytickets").innerHTML=res10;
+
+let res11=await MyContract.mytickets().call();
+			document.getElementById("mytickets").innerHTML=res11;
+		
+  let res12=await MyContract.circulatingchickens().call();
+			document.getElementById("circulatingchickens").innerHTML=round(res12/1000000);
+  
+  let res13=await MyContract.totalPlayers().call();
+			document.getElementById("playersxxx").innerHTML=res13;
+  
+   let res14=await MyContract.allprofits().call();
+			document.getElementById("allearned").innerHTML=round(res14/1000000);
+  
+   
+  
+    let res15=await MyContract.allmyprofits().call();
+			document.getElementById("withdrawed").innerHTML=roundToTwo(res15/1000000);
+  
+
+ 
+ 
+ 
+   
+  
+  
+   document.getElementById("copyid").innerHTML = "-Copy-";
+   
+   updateprice();
+	  
  //document.getElementById("myinvestment").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.trxDeposit._hex)/1000000);
  if(window.tronWeb.toDecimal(_player.trxDeposit._hex)>0){
  //document.getElementById("mytotalpayout").innerHTML=roundToFour((window.tronWeb.toDecimal(_player.payoutSum._hex)/1000000)+(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000));
@@ -913,36 +945,6 @@ document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauctio
  
 
 
-		let res10=await MyContract.soldtickets().call();
-			document.getElementById("todaytickets").innerHTML=res10;
-
-let res11=await MyContract.mytickets().call();
-			document.getElementById("mytickets").innerHTML=res11;
-		
-  let res12=await MyContract.circulatingchickens().call();
-			document.getElementById("circulatingchickens").innerHTML=round(res12/1000000);
-  
-  let res13=await MyContract.totalPlayers().call();
-			document.getElementById("playersxxx").innerHTML=res13;
-  
-   let res14=await MyContract.allprofits().call();
-			document.getElementById("allearned").innerHTML=round(res14/1000000);
-  
-   
-  
-    let res15=await MyContract.allmyprofits().call();
-			document.getElementById("withdrawed").innerHTML=roundToTwo(res15/1000000);
-  
-
- 
- 
- 
-   
-  
-  
-   document.getElementById("copyid").innerHTML = "-Copy-";
-   
-   updateprice();
     
     let refwinadd1= await MyContract.toptenchickenaddress(1).call(); 
  document.getElementById("refwinneraddr1").innerHTML =tronWeb.address.fromHex(refwinadd1.replace(/^0x/, '41'));
@@ -1140,7 +1142,7 @@ accountInterval2 = setInterval(function () {
     
     if(myaddress!=tronWeb.defaultAddress.base58){
         myaddress = tronWeb.defaultAddress.base58;
-			
+	counterxxx=50;		
 }
   
 	if (typeof window.tronWeb !== 'undefined'){		
