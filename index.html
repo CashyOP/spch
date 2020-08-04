@@ -828,7 +828,25 @@ started=1;
 				var seconds = Math.floor((checkcountdown % (60)));
 	document.getElementById("countdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
   document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
-  
+
+let _mychicken= await MyContract.mychickens().call(); 
+    document.getElementById("mychickens").innerHTML=roundToFour(_mychicken/1000000);
+  document.getElementById("producing").innerHTML=roundToFour(_mychicken/1000000*715/1000);
+
+	    let _myeggsauction= await MyContract.checkMYeggsinmarket().call();
+ document.getElementById("myeggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_myeggsauction._hex)/1000000);
+ 
+  let _alleggsauction= await MyContract.checkeggsinmarket().call();
+ document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
+ 
+document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
+document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
+	let res10=await MyContract.soldtickets().call();
+			document.getElementById("todaytickets").innerHTML=res10;
+
+let res11=await MyContract.mytickets().call();
+			document.getElementById("mytickets").innerHTML=res11;
+	  
   if(counterxxx>30){
     counterxxx=0;
 
@@ -842,9 +860,7 @@ started=1;
 		ticketsprice=res9d;
   
    
-   let _mychicken= await MyContract.mychickens().call(); 
-    document.getElementById("mychickens").innerHTML=roundToFour(_mychicken/1000000);
-  document.getElementById("producing").innerHTML=roundToFour(_mychicken/1000000*715/1000);
+
 
 
 	
@@ -862,25 +878,13 @@ started=1;
  let _availprofit= await MyContract.myprofits().call();
  document.getElementById("withdrawable").innerHTML=roundToTwo(window.tronWeb.toDecimal(_availprofit._hex)/1000000);
  
-  let _myeggsauction= await MyContract.checkMYeggsinmarket().call();
- document.getElementById("myeggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_myeggsauction._hex)/1000000);
- 
-  let _alleggsauction= await MyContract.checkeggsinmarket().call();
- document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
- 
-document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
-document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
 
   
   
  let _player= await MyContract.players(myaddress).call();
 
  
-		let res10=await MyContract.soldtickets().call();
-			document.getElementById("todaytickets").innerHTML=res10;
-
-let res11=await MyContract.mytickets().call();
-			document.getElementById("mytickets").innerHTML=res11;
+	
 		
   let res12=await MyContract.circulatingchickens().call();
 			document.getElementById("circulatingchickens").innerHTML=round(res12/1000000);
