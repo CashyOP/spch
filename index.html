@@ -839,6 +839,10 @@ let _mychicken= await MyContract.mychickens().call();
   let _alleggsauction= await MyContract.checkeggsinmarket().call();
  document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
  
+	  let res8a=await MyContract.checkroundnormalpot().call();
+			pot=round(res8a/1000000);
+			document.getElementById("todaypool").innerHTML=pot;
+	  
 document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
 document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
 	let res10=await MyContract.soldtickets().call();
@@ -868,9 +872,7 @@ let res11=await MyContract.mytickets().call();
 			pot=roundToFour(res8/1000000);
 			document.getElementById("todayprize").innerHTML=pot;	
 	
-		let res8a=await MyContract.checkroundnormalpot().call();
-			pot=round(res8a/1000000);
-			document.getElementById("todaypool").innerHTML=pot;
+		
 
   	let res8ab=await MyContract.contractbalance().call();
 			document.getElementById("tomorrowpool").innerHTML=round(res8ab/10000000);
