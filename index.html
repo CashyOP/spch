@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  >
 <head>
-	<!-- Google Tag Manager -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -99,7 +99,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/e">how to make a website</a></section><section class="header6 cid-s5YzDKRyxK mbr-fullscreen mbr-parallax-background" id="header6-28">
+<section class="engine"><a href="https://mobirise.info/t">amp templates</a></section><section class="header6 cid-s5YzDKRyxK mbr-fullscreen mbr-parallax-background" id="header6-28">
 
    
   
@@ -120,7 +120,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                 <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">
                     Build your Chickens Empire and earn TRX<br><em>Never ending Profits and 15% Referrals</em></p>
                 <div class="mbr-section-btn align-center"><a class="btn btn-md btn-primary display-4" href="https://t.me/SuperChickensGroup" target="_blank">Telegram</a>
-                        <a class="btn btn-md btn-white-outline display-4" href="https://tronscan.org/#/contract/TEo5AUjMFRFpmLwwPee8TtgXFaqobxQp6j" target="_blank">Smart Contract</a></div>
+                        <a class="btn btn-md btn-white-outline display-4" href="https://tronscan.org/#/contract/TEo5AUjMFRFpmLwwPee8TtgXFaqobxQp6j" target="_blank">Smart Contract</a> <a class="btn btn-md btn-success display-4" href="contest.html">Deposit Contest</a></div>
             </div>
         </div>
     </div>
@@ -759,7 +759,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                 </div>
             </div>
           <script>
-              var started=0;	
+            var started=0;	
 var ticketsprice=50000000;
 
 function getUrlVars() {
@@ -828,7 +828,29 @@ started=1;
 				var seconds = Math.floor((checkcountdown % (60)));
 	document.getElementById("countdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
   document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
-  
+
+let _mychicken= await MyContract.mychickens().call(); 
+    document.getElementById("mychickens").innerHTML=roundToFour(_mychicken/1000000);
+  document.getElementById("producing").innerHTML=roundToFour(_mychicken/1000000*715/1000);
+
+	    let _myeggsauction= await MyContract.checkMYeggsinmarket().call();
+ document.getElementById("myeggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_myeggsauction._hex)/1000000);
+ 
+  let _alleggsauction= await MyContract.checkeggsinmarket().call();
+ document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
+ 
+	  let res8a=await MyContract.checkroundnormalpot().call();
+			pot=round(res8a/1000000);
+			document.getElementById("todaypool").innerHTML=pot;
+	  
+document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
+document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
+	let res10=await MyContract.soldtickets().call();
+			document.getElementById("todaytickets").innerHTML=res10;
+
+let res11=await MyContract.mytickets().call();
+			document.getElementById("mytickets").innerHTML=res11;
+	  
   if(counterxxx>30){
     counterxxx=0;
 
@@ -842,9 +864,7 @@ started=1;
 		ticketsprice=res9d;
   
    
-   let _mychicken= await MyContract.mychickens().call(); 
-    document.getElementById("mychickens").innerHTML=roundToFour(_mychicken/1000000);
-  document.getElementById("producing").innerHTML=roundToFour(_mychicken/1000000*715/1000);
+
 
 
 	
@@ -852,9 +872,7 @@ started=1;
 			pot=roundToFour(res8/1000000);
 			document.getElementById("todayprize").innerHTML=pot;	
 	
-		let res8a=await MyContract.checkroundnormalpot().call();
-			pot=round(res8a/1000000);
-			document.getElementById("todaypool").innerHTML=pot;
+		
 
   	let res8ab=await MyContract.contractbalance().call();
 			document.getElementById("tomorrowpool").innerHTML=round(res8ab/10000000);
@@ -862,25 +880,13 @@ started=1;
  let _availprofit= await MyContract.myprofits().call();
  document.getElementById("withdrawable").innerHTML=roundToTwo(window.tronWeb.toDecimal(_availprofit._hex)/1000000);
  
-  let _myeggsauction= await MyContract.checkMYeggsinmarket().call();
- document.getElementById("myeggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_myeggsauction._hex)/1000000);
- 
-  let _alleggsauction= await MyContract.checkeggsinmarket().call();
- document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
- 
-document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
-document.getElementById("eggsprice").innerHTML=roundToTwo(((res8a/_alleggsauction)));
 
   
   
  let _player= await MyContract.players(myaddress).call();
 
  
-		let res10=await MyContract.soldtickets().call();
-			document.getElementById("todaytickets").innerHTML=res10;
-
-let res11=await MyContract.mytickets().call();
-			document.getElementById("mytickets").innerHTML=res11;
+	
 		
   let res12=await MyContract.circulatingchickens().call();
 			document.getElementById("circulatingchickens").innerHTML=round(res12/1000000);
@@ -1154,6 +1160,7 @@ document.getElementById("installmetamask").style.display = "none";
 }}
 }, 1000);  
             
+
 
             
   </script>
