@@ -846,7 +846,7 @@ let _mychicken= await MyContract.mychickens().call();
 			pot=round(res8a/1000000);
 			document.getElementById("todaypool").innerHTML=pot;
 	  
-document.getElementById("myearning").innerHTML=roundToFour(((res8a/_alleggsauction*_myeggsauction/1000000)));
+document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
 document.getElementById("eggsprice").innerHTML=roundToFour(((res8a/_alleggsauction)));
 	let res10=await MyContract.soldtickets().call();
 			document.getElementById("todaytickets").innerHTML=res10;
