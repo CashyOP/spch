@@ -776,13 +776,16 @@ function getUrlVars() {
 	
 
 function roundToFour(num) {
-	return +(Math.floor(num + "e+4") + "e-4");
+	return round(num);
 }
 function roundToTwo(num) {
-	return +(Math.floor(num + "e+2") + "e-2");
+	return round(num);
 }
 function round(num) {
-	return +(Math.floor(num + "e+0") + "e-0");
+	if(num>1000) return +(Math.floor(num + "e+0") + "e-0");
+	if(num>100) return +(Math.floor(num + "e+1") + "e-1");
+	if(num>1) return +(Math.floor(num + "e+4") + "e-4");
+	if(num>0) return +(Math.floor(num + "e+6") + "e-6");
 }
   
 
