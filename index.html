@@ -782,6 +782,7 @@ function roundToTwo(num) {
 	return round(num);
 }
 function round(num) {
+	if(num>100000) return +(((Math.floor(num + "e+0") + "e-0")/1000)+"K");
 	if(num>1000) return +(Math.floor(num + "e+0") + "e-0");
 	if(num>100) return +(Math.floor(num + "e+1") + "e-1");
 	if(num>10) return +(Math.floor(num + "e+2") + "e-2");
