@@ -774,23 +774,37 @@ function getUrlVars() {
 	return vars;
 }
 	
+function nFormatter(num, digits) {
+  var si = [
+    { value: 1, symbol: "" },
+    { value: 1E3, symbol: "k" },
+    { value: 1E6, symbol: "M" }
+  ];
+  var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+  var i;
+  for (i = si.length - 1; i > 0; i--) {
+    if (num >= si[i].value) {
+      break;
+    }
+  }
+  return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
+}
 
-function roundToFour(num) {
-	return round(num);
-}
-function roundToTwo(num) {
-	return round(num);
-}
 function round(num) {
-	//if(num>100000) return (((Math.floor((num/1000) + "e+0")))+"K");
+	if(num>100000) return nFormatter(num, 1);	
 	if(num>1000) return +(Math.floor(num + "e+0") + "e-0");
 	if(num>100) return +(Math.floor(num + "e+1") + "e-1");
 	if(num>10) return +(Math.floor(num + "e+2") + "e-2");
-	if(num>1) return +(Math.floor(num + "e+4") + "e-4");
-	if(num>=0) return +(Math.floor(num + "e+6") + "e-6");
+	if(num>1) return nFormatter(num, 4);
+	if(num>=0) return nFormatter(num, 6);
 }
   
-
+function roundx(num) {
+		
+	return +(Math.floor(num + "e+0") + "e-0");
+	
+}
+		  
 var contractAddress='TEo5AUjMFRFpmLwwPee8TtgXFaqobxQp6j';
 
 var defaultRefAddress='TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f';
@@ -829,7 +843,7 @@ started=1;
   let MyContract = await tronWeb.contract().at(contractAddress);
   
   let _myeggs= await MyContract.checkeggs().call(); 
-    document.getElementById("myeggs").innerHTML=roundToFour(_myeggs/1000000);
+    document.getElementById("myeggs").innerHTML=round(_myeggs/1000000);
   
    let checkcountdown= await MyContract.checkroundnormal().call(); 
   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
@@ -839,21 +853,21 @@ started=1;
   document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
 
 let _mychicken= await MyContract.mychickens().call(); 
-    document.getElementById("mychickens").innerHTML=roundToFour(_mychicken/1000000);
-  document.getElementById("producing").innerHTML=roundToFour(_mychicken/1000000*715/1000);
+    document.getElementById("mychickens").innerHTML=round(_mychicken/1000000);
+  document.getElementById("producing").innerHTML=round(_mychicken/1000000*715/1000);
 
 	    let _myeggsauction= await MyContract.checkMYeggsinmarket().call();
- document.getElementById("myeggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_myeggsauction._hex)/1000000);
+ document.getElementById("myeggsatauction").innerHTML=round(window.tronWeb.toDecimal(_myeggsauction._hex)/1000000);
  
   let _alleggsauction= await MyContract.checkeggsinmarket().call();
- document.getElementById("alleggsatauction").innerHTML=roundToFour(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
+ document.getElementById("alleggsatauction").innerHTML=round(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
  
 	  let res8a=await MyContract.checkroundnormalpot().call();
 			pot=round(res8a/1000000);
 			document.getElementById("todaypool").innerHTML=pot;
 	  
-document.getElementById("myearning").innerHTML=roundToTwo(((res8a/_alleggsauction*_myeggsauction/1000000)));
-document.getElementById("eggsprice").innerHTML=roundToFour(((res8a/_alleggsauction)));
+document.getElementById("myearning").innerHTML=round(((res8a/_alleggsauction*_myeggsauction/1000000)));
+document.getElementById("eggsprice").innerHTML=round(((res8a/_alleggsauction)));
 	let res10=await MyContract.soldtickets().call();
 			document.getElementById("todaytickets").innerHTML=res10;
 
@@ -869,7 +883,7 @@ let res11=await MyContract.mytickets().call();
   
     
  let res9d=await MyContract.checkticketprice().call();
-			document.getElementById("ticketsprice").innerHTML=roundToTwo(res9d/1000000);
+			document.getElementById("ticketsprice").innerHTML=round(res9d/1000000);
 		ticketsprice=res9d;
   
    
@@ -878,7 +892,7 @@ let res11=await MyContract.mytickets().call();
 
 	
 	let res8=await MyContract.checkprize().call();
-			pot=roundToFour(res8/1000000);
+			pot=round(res8/1000000);
 			document.getElementById("todayprize").innerHTML=pot;	
 	
 		
@@ -887,7 +901,7 @@ let res11=await MyContract.mytickets().call();
 			document.getElementById("tomorrowpool").innerHTML=round(res8ab/10000000);
   
  let _availprofit= await MyContract.myprofits().call();
- document.getElementById("withdrawable").innerHTML=roundToTwo(window.tronWeb.toDecimal(_availprofit._hex)/1000000);
+ document.getElementById("withdrawable").innerHTML=round(window.tronWeb.toDecimal(_availprofit._hex)/1000000);
  
 
   
@@ -909,7 +923,7 @@ let res11=await MyContract.mytickets().call();
    
   
     let res15=await MyContract.allmyprofits().call();
-			document.getElementById("withdrawed").innerHTML=roundToTwo(res15/1000000);
+			document.getElementById("withdrawed").innerHTML=round(res15/1000000);
   
 
  
@@ -922,16 +936,16 @@ let res11=await MyContract.mytickets().call();
    
    updateprice();
 	  
- //document.getElementById("myinvestment").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.trxDeposit._hex)/1000000);
+ //document.getElementById("myinvestment").innerHTML=round(window.tronWeb.toDecimal(_player.trxDeposit._hex)/1000000);
  if(window.tronWeb.toDecimal(_player.trxDeposit._hex)>0){
- //document.getElementById("mytotalpayout").innerHTML=roundToFour((window.tronWeb.toDecimal(_player.payoutSum._hex)/1000000)+(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000));
- document.getElementById("mytotalreferral").innerHTML=roundToTwo(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000);
- document.getElementById("referralxx").innerHTML=roundToTwo(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000);
+ //document.getElementById("mytotalpayout").innerHTML=round((window.tronWeb.toDecimal(_player.payoutSum._hex)/1000000)+(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000));
+ document.getElementById("mytotalreferral").innerHTML=round(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000);
+ document.getElementById("referralxx").innerHTML=round(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000);
    
-  document.getElementById("tier1").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff1sum._hex));
-  document.getElementById("tier2").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff2sum._hex));
-  document.getElementById("tier3").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff3sum._hex));
-  document.getElementById("tier4").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff4sum._hex));
+  document.getElementById("tier1").innerHTML=round(window.tronWeb.toDecimal(_player.aff1sum._hex));
+  document.getElementById("tier2").innerHTML=round(window.tronWeb.toDecimal(_player.aff2sum._hex));
+  document.getElementById("tier3").innerHTML=round(window.tronWeb.toDecimal(_player.aff3sum._hex));
+  document.getElementById("tier4").innerHTML=round(window.tronWeb.toDecimal(_player.aff4sum._hex));
   
  
  }
@@ -949,7 +963,7 @@ let res11=await MyContract.mytickets().call();
 				document.getElementById("ticket" + (n+1)).innerHTML = "#"+(result[n].result.ticketnumber);
 				 
 				 
-				document.getElementById("prize" + (n+1)).innerHTML = (roundToFour(result[n].result.prize/1000000));
+				document.getElementById("prize" + (n+1)).innerHTML = (round(result[n].result.prize/1000000));
 				
 				
 			}
@@ -1046,12 +1060,12 @@ if(started>0){
 
 	
 	if(valuex>=0){
-	let res7 = await contractInstance.chickenprice(window.tronWeb.toHex(round(valuex*1000000))).call();
+	let res7 = await contractInstance.chickenprice(window.tronWeb.toHex(roundx((valuex*1000000)))).call();
 	chickenpricex = res7;
 	}
 	
-	document.getElementById("chickenprice").innerHTML = roundToTwo(chickenpricex / 1000000);
-	document.getElementById("willget").innerHTML=roundToFour(valuex*1000000/chickenpricex);
+	document.getElementById("chickenprice").innerHTML = round((chickenpricex / 1000000));
+	document.getElementById("willget").innerHTML=round((valuex*1000000/chickenpricex));
 
 }
 }
