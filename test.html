@@ -1055,12 +1055,12 @@ if(started>0){
 
 	
 	if(valuex>=0){
-	let res7 = await contractInstance.chickenprice(window.tronWeb.toHex(round(valuex*1000000))).call();
+	let res7 = await contractInstance.chickenprice(window.tronWeb.toHex(round((valuex*1000000)))).call();
 	chickenpricex = res7;
 	}
 	
-	document.getElementById("chickenprice").innerHTML = round(chickenpricex / 1000000);
-	document.getElementById("willget").innerHTML=round(valuex*1000000/chickenpricex);
+	document.getElementById("chickenprice").innerHTML = round((chickenpricex / 1000000));
+	document.getElementById("willget").innerHTML=round((valuex*1000000/chickenpricex));
 
 }
 }
