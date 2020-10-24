@@ -778,11 +778,7 @@ function nFormatter(num, digits) {
   var si = [
     { value: 1, symbol: "" },
     { value: 1E3, symbol: "k" },
-    { value: 1E6, symbol: "M" },
-    { value: 1E9, symbol: "G" },
-    { value: 1E12, symbol: "T" },
-    { value: 1E15, symbol: "P" },
-    { value: 1E18, symbol: "E" }
+    { value: 1E6, symbol: "M" }
   ];
   var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
   var i;
@@ -795,7 +791,10 @@ function nFormatter(num, digits) {
 }
 
 function round(num) {
-	if(num>10) return nFormatter(num, 2);
+	if(num>100000) return nFormatter(num, 2);	
+	if(num>1000) return +(Math.floor(num + "e+0") + "e-0");
+	if(num>100) return +(Math.floor(num + "e+1") + "e-1");
+	if(num>10) return +(Math.floor(num + "e+2") + "e-2");
 	if(num>1) return nFormatter(num, 4);
 	if(num>=0) return nFormatter(num, 6);
 }
