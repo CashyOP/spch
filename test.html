@@ -799,7 +799,12 @@ function round(num) {
 	if(num>=0) return nFormatter(num, 6);
 }
   
-
+function roundx(num) {
+		
+	return +(Math.floor(num + "e+0") + "e-0");
+	
+}
+		  
 var contractAddress='TEo5AUjMFRFpmLwwPee8TtgXFaqobxQp6j';
 
 var defaultRefAddress='TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f';
@@ -1055,7 +1060,7 @@ if(started>0){
 
 	
 	if(valuex>=0){
-	let res7 = await contractInstance.chickenprice(window.tronWeb.toHex(round((valuex*1000000)))).call();
+	let res7 = await contractInstance.chickenprice(window.tronWeb.toHex(roundx((valuex*1000000)))).call();
 	chickenpricex = res7;
 	}
 	
