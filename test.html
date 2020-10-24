@@ -795,12 +795,9 @@ function nFormatter(num, digits) {
 }
 
 function round(num) {
-	if(num>100000) return (+((Math.floor((num/1000) + "e+0")))+"K");
-	if(num>1000) return +(Math.floor(num + "e+0") + "e-0");
-	if(num>100) return +(Math.floor(num + "e+1") + "e-1");
-	if(num>10) return +(Math.floor(num + "e+2") + "e-2");
-	if(num>1) return +(Math.floor(num + "e+4") + "e-4");
-	if(num>=0) return +(Math.floor(num + "e+6") + "e-6");
+	if(num>10) return nFormatter(num, 2);
+	if(num>1) return nFormatter(num, 4);
+	if(num>=0) return nFormatter(num, 6);
 }
   
 
@@ -891,7 +888,7 @@ let res11=await MyContract.mytickets().call();
 
 	
 	let res8=await MyContract.checkprize().call();
-			pot=roundToFour(res8/1000000);
+			pot=round(res8/1000000);
 			document.getElementById("todayprize").innerHTML=pot;	
 	
 		
