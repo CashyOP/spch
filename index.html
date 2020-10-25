@@ -804,6 +804,16 @@ function roundx(num) {
 	return +(Math.floor(num + "e+0") + "e-0");
 	
 }
+
+function roundy(num) {
+	
+	if(num>1000) return +(Math.floor(num + "e+0") + "e-0");
+	if(num>100) return +(Math.floor(num + "e+1") + "e-1");
+	if(num>10) return +(Math.floor(num + "e+2") + "e-2");
+	if(num>1) return nFormatter(num, 4);
+	if(num>=0) return nFormatter(num, 6);
+}
+		  
 		  
 var contractAddress='TEo5AUjMFRFpmLwwPee8TtgXFaqobxQp6j';
 
@@ -843,7 +853,7 @@ started=1;
   let MyContract = await tronWeb.contract().at(contractAddress);
   
   let _myeggs= await MyContract.checkeggs().call(); 
-    document.getElementById("myeggs").innerHTML=round(_myeggs/1000000);
+    document.getElementById("myeggs").innerHTML=roundy(_myeggs/1000000);
   
    let checkcountdown= await MyContract.checkroundnormal().call(); 
   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
@@ -853,11 +863,11 @@ started=1;
   document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
 
 let _mychicken= await MyContract.mychickens().call(); 
-    document.getElementById("mychickens").innerHTML=round(_mychicken/1000000);
-  document.getElementById("producing").innerHTML=round(_mychicken/1000000*715/1000);
+    document.getElementById("mychickens").innerHTML=roundy(_mychicken/1000000);
+  document.getElementById("producing").innerHTML=roundy(_mychicken/1000000*715/1000);
 
 	    let _myeggsauction= await MyContract.checkMYeggsinmarket().call();
- document.getElementById("myeggsatauction").innerHTML=round(window.tronWeb.toDecimal(_myeggsauction._hex)/1000000);
+ document.getElementById("myeggsatauction").innerHTML=roundy(window.tronWeb.toDecimal(_myeggsauction._hex)/1000000);
  
   let _alleggsauction= await MyContract.checkeggsinmarket().call();
  document.getElementById("alleggsatauction").innerHTML=round(window.tronWeb.toDecimal(_alleggsauction._hex)/1000000);
