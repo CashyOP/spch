@@ -197,92 +197,60 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     </div>
 </section>
 
-<section class="services1" group="Features" data-bg-video="{{bg.type == 'video' && bg.value.url}}" mbr-class="{'mbr-parallax-background': bg.parallax}">
+
+
+	
+	
+	<section class="services1 cid-s5nqeNAJwy mbr-parallax-background" id="services1-3">
     <!---->
-    <mbr-parameters>
-        <input type="range" inline title="Top" name="paddingTop" min="0" max="9" step="1" value="0">
-        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="9" step="1" value="3">
-        <!---->
-        <input type="checkbox" title="Show Title" name="showTitle">
-        <input type="checkbox" title="Show Subtitle" name="showSubtitle" checked>
-        <!---->
-        <input type="checkbox" title="Show Card Title" name="showCardTitle" checked>
-        <input type="checkbox" title="Show Card Text" name="showText" checked>
-        <input type="checkbox" title="Show Card Buttons" name="showButtons" checked>
-        <input type="checkbox" title="Transparent BG" name="transparentBg" checked>
-        <input type="color" title="Cards Bg" name="cardsBg" value="#ffffff" condition="!transparentBg">
-        <select title="Cards" name="cardsAmount">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3" selected>3</option>
-            <option value="4">4</option>
-        </select>
-        <select title="Align Buttons:" name="alignBtn" condition="showButtons">
-            <option value="1" selected>Left</option>
-            <option value="2">Center</option>
-            <option value="3">Right</option>
-        </select>
-        <!---->
-        <fieldset type="background" name="bg" parallax>
-            <input type="image" title="Background Image" value="file:///C:/stuff/stuff/stuff/chickensLAST/assets/images/1.jpeg" parallax selected>
-            <input type="color" title="Background Color" value="#ffffff">
-            <input type="video" title="Background Video" value="http://www.youtube.com/watch?v=uNCr7NdOJgw">
-        </fieldset>
-        <input type="checkbox" title="Overlay" name="overlay" condition="bg.type !== 'color'" checked>
-        <input type="color" title="Overlay Color" name="overlayColor" value="#ffffff" condition="overlay && bg.type !== 'color'">
-        <input type="range" inline title="Opacity" name="overlayOpacity" min="0" max="1" step="0.1" value="0.8" condition="overlay && bg.type !== 'color'">
-    </mbr-parameters>
+    
     <!---->
     <!--Overlay-->
-    <div class="mbr-overlay" mbr-if="overlay && bg.type!== 'color'" mbr-style="{'opacity': overlayOpacity, 'background-color': overlayColor}">
+    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(255, 255, 255);">
     </div>
     <!--Container-->
     <div class="container">
         <div class="row justify-content-center">
             <!--Titles-->
             <div class="title pb-5 col-12">
-                <h2 mbr-if="showTitle" class="align-left pb-3 mbr-fonts-style" mbr-theme-style="display-1">
-                    Our Shop
-                </h2>
-               
+                
+                
             </div>
             <!--Card-1-->
-            <div class="card col-12 col-md-6 p-3" mbr-class="{'col-lg-3': cardsAmount == '4',
-                             'col-lg-4': cardsAmount == '3', 'last-child': cardsAmount == '1'}">
+            <div class="card col-12 col-md-6 p-3 col-lg-4">
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <img src="file:///C:/stuff/stuff/stuff/chickensLAST/assets/images/normal-chicken-super-chickens-500x504.png" alt="Mobirise" title>
+                        <img src="assets/images/normal-chicken-super-chickens-500x504.png" alt="Mobirise" title="">
                     </div>
                     <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showCardTitle" data-app-selector=".card-title">
+                        <h4 class="card-title mbr-fonts-style display-5">
                           My Chickens: <br><span id="mychickens">-</span></h4>
-                        <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text, .mbr-section-btn">
+                        <p class="mbr-text mbr-fonts-style display-7">
                             Get more chickens and become the king of chickens!<br>                     </p>
                       
-                      <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showText" data-app-selector=".mbr-text, .mbr-section-btn">TRX to invest:<br>
+                      <p class="mbr-text mbr-fonts-style display-4">TRX to invest:<br>
                     
 	<span class="input">
 		<input type="text" onchange="updateprice()" onkeydown="updateprice()" onkeyup="updateprice()" onkeypress="updateprice()" name="trx" align="center" value="50" style="text-align: center;" size="5">
 		<span></span>	
-	</span><br><span mbr-buttons mbr-theme-style="display-4" class="mbr-section-btn" mbr-if="showButtons" data-toolbar="-mbrBtnMove" mbr-class="{'align-left' : alignBtn == 1, 'align-center' : alignBtn == 2, 'align-right' : alignBtn == 3}"><a onclick="buy()" class="btn btn-info" data-app-placeholder="Type Text">
-                        BUY</a></span>  <br>You will get <b><span id="willget">-</span> </b>chickens
-                        <br><b>1 Chicken = </b><span id="chickenprice" style="font-weight: bold;">-</span><b> TRX</b></p>
+	</span><br><span class="mbr-section-btn"><a onclick="buy()" class="btn btn-info">
+                        BUY</a></span>  <br>You will get <strong><span id="willget">-</span> </strong>chickens
+                        <br><strong>1 Chicken = </strong><span id="chickenprice" style="font-weight: bold;">-</span><strong> TRX</strong></p>
                      
                    
                     </div>
                 </div>
             </div>
             <!--Card-2-->
-            <div class="card col-12 col-md-6 p-3" mbr-if="cardsAmount > 1" mbr-class="{'col-lg-3': cardsAmount == '4',
-                             'col-lg-4': cardsAmount == '3', 'last-child': cardsAmount == '2'}">
+            <div class="card col-12 col-md-6 p-3 col-lg-4">
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <img src="file:///C:/stuff/stuff/stuff/chickensLAST/assets/images/untitledx.gif" alt="Mobirise" title>
+                        <img src="assets/images/untitledx.gif" alt="Mobirise" title="">
                     </div>
                     <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showCardTitle" data-app-selector=".card-title">
+                        <h4 class="card-title mbr-fonts-style display-5">
                           Producing <br><span id="producing">-</span> eggs / day</h4>
-                        <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text, .mbr-section-btn">
+                        <p class="mbr-text mbr-fonts-style display-7">
                             Every chicken produce eggs all the time, forever!<br><br><br></p>
                         <!--Btn-->
                         
@@ -290,24 +258,23 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                 </div>
             </div>
             <!--Card-3-->
-            <div class="card col-12 col-md-6 p-3" mbr-if="cardsAmount > 2" mbr-class="{'col-lg-3': cardsAmount == '4',
-                             'col-lg-4': cardsAmount == '3', 'last-child': cardsAmount == '3'}">
+            <div class="card col-12 col-md-6 p-3 col-lg-4 last-child">
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <img src="file:///C:/stuff/stuff/stuff/chickensLAST/assets/images/normal-eggs-small-super-chickens-500x500.png" alt="Mobirise" title>
+                        <img src="assets/images/normal-eggs-small-super-chickens-500x500.png" alt="Mobirise" title="">
                     </div>
                     <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showCardTitle" data-app-selector=".card-title">My Eggs:<br><span id="myeggs">-</span></h4>
-                        <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text, .mbr-section-btn">
+                        <h4 class="card-title mbr-fonts-style display-5">My Eggs:<br><span id="myeggs">-</span></h4>
+                        <p class="mbr-text mbr-fonts-style display-7">
                             Eggs are precious, you can exchange them for TRX.</p>
                       
                       
-                          <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showText" data-app-selector=".mbr-text, .mbr-section-btn">Sell Eggs to Auction:<br>
+                          <p class="mbr-text mbr-fonts-style display-4">Sell Eggs to Auction:<br>
                     
 	<span class="input">
 		<input type="text" align="center" value="0" style="text-align: center;" size="5" name="eggsforsale">
 		<span></span>	
-	</span><br><span mbr-buttons mbr-theme-style="display-4" class="mbr-section-btn  pt-3" mbr-if="showButtons" data-toolbar="-mbrBtnMove" mbr-class="{'align-left' : alignBtn == 1, 'align-center' : alignBtn == 2, 'align-right' : alignBtn == 3}"><a onclick="sell()" class="btn btn-black-outline" data-app-placeholder="Type Text">SELL</a><br></span>Scroll down to see<br><b>today auction</b><br><br></p>
+	</span><br><span class="mbr-section-btn  pt-3"><a onclick="sell()" class="btn btn-black-outline">SELL</a><br></span>Scroll down to see<br><strong>today auction</strong><br><br></p>
                       
                        
                       
@@ -315,35 +282,14 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                 </div>
             </div>
             <!--Card-4-->
-            <div class="card col-12 col-md-6 p-3" mbr-if="cardsAmount > 3" mbr-class="{'col-lg-3': cardsAmount == '4',
-                             'col-lg-4': cardsAmount == '3', 'last-child': cardsAmount == '4'}">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="../_images/product1.jpg" alt="Mobirise">
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style" mbr-theme-style="display-5" mbr-if="showCardTitle" data-app-selector=".card-title">
-                            Watch Strict
-                        </h4>
-                        <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text, .mbr-section-btn">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium dolores doloribus
-                            eligendi eum illo placeat quis repellendus sequi tempore!
-                        </p>
-                        <!--Btn-->
-                        <div mbr-buttons mbr-theme-style="display-4" class="mbr-section-btn" mbr-if="showButtons" data-toolbar="-mbrBtnMove" mbr-class="{'align-left' : alignBtn == 1, 'align-center' : alignBtn == 2, 'align-right' : alignBtn == 3}">
-                            <a href="https://mobirise.co" class="btn btn-warning-outline">
-                                $ 790
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           <h3 class="mbr-section-subtitle mbr-light mbr-fonts-style" mbr-theme-style="display-7"><i>
+             <h3 class="mbr-section-subtitle mbr-light mbr-fonts-style" mbr-theme-style="display-7"><i>
 		   You own <b><span id="own">-</span>%</b> of all chickens in the world</i></h3>
         </div>
     </div>
 </section>
-
+	
+	
+	
 <section class="mbr-section content4 cid-s5FQMAx9cQ" id="content4-k">
 
     
