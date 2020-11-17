@@ -803,7 +803,9 @@ function round(num) {
 	if(num>100) return +(Math.floor(num + "e+1") + "e-1");
 	if(num>10) return +(Math.floor(num + "e+2") + "e-2");
 	if(num>1) return nFormatter(num, 4);
-	if(num>=0) return nFormatter(num, 6);
+	if(num>0.01) return nFormatter(num, 6);
+	if(num>=0) return nFormatter(num, 10);
+	
 }
   
 function roundx(num) {
@@ -818,7 +820,8 @@ function roundy(num) {
 	if(num>100) return +(Math.floor(num + "e+1") + "e-1");
 	if(num>10) return +(Math.floor(num + "e+2") + "e-2");
 	if(num>1) return nFormatter(num, 4);
-	if(num>=0) return nFormatter(num, 6);
+	if(num>0.01) return nFormatter(num, 6);
+	if(num>=0) return nFormatter(num,10);
 }
 		  
 		  
