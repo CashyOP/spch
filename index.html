@@ -235,7 +235,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		<span></span>	
 	</span><br><span class="mbr-section-btn"><a onclick="buy()" class="btn btn-info">
                         BUY</a></span>  <br>You will get <strong><span id="willget">-</span> </strong>chickens
-                        <br><strong>1 Chicken = </strong><span id="chickenprice" style="font-weight: bold;">-</span><strong> TRX</strong></p>
+                        <br><strong>1000 Chickens = </strong><span id="chickenprice" style="font-weight: bold;">-</span><strong> TRX</strong></p>
                      
                    
                     </div>
@@ -367,7 +367,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                     </div>
                     <div class="plan-body ">
                         <p class="mbr-text mbr-fonts-style display-4">
-                            Total number of eggs for sale in today auction. <br>Current sale price: <br><strong><span id="eggsprice">-</span> TRX/Egg</strong></p>
+                            Total number of eggs for sale in today auction. <br>Current sale price 1000 eggs: <br><strong><span id="eggsprice">-</span> TRX</strong></p>
                         
                     </div>
                 </div>
@@ -887,7 +887,7 @@ let _mychicken= await MyContract.mychickens().call();
 			document.getElementById("todaypool").innerHTML=pot;
 	  
 document.getElementById("myearning").innerHTML=round(((res8a/_alleggsauction*_myeggsauction/1000000)));
-document.getElementById("eggsprice").innerHTML=round(((res8a/_alleggsauction)));
+document.getElementById("eggsprice").innerHTML=round(((res8a*1000/_alleggsauction)));
 	let res10=await MyContract.soldtickets().call();
 			document.getElementById("todaytickets").innerHTML=res10;
 
@@ -1086,7 +1086,7 @@ if(started>0){
 	chickenpricex = res7;
 	}
 	
-	document.getElementById("chickenprice").innerHTML = round((chickenpricex / 1000000));
+	document.getElementById("chickenprice").innerHTML = round((chickenpricex / 1000));
 	document.getElementById("willget").innerHTML=round((valuex*1000000/chickenpricex));
 
 }
