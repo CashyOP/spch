@@ -271,10 +271,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                       
                           <p class="mbr-text mbr-fonts-style display-4">Sell Eggs to Auction:<br>
                     
-	<span class="input">
-		<input type="text" align="center" value="0" style="text-align: center;" size="5" name="eggsforsale">
-		<span></span>	
-	</span><br><span class="mbr-section-btn  pt-3"><a onclick="sell()" class="btn btn-black-outline">SELL</a><br></span>Scroll down to see<br><strong>today auction</strong><br><br></p>
+	<span class="mbr-section-btn  pt-3"><a onclick="sell()" class="btn btn-black-outline">SELL</a><br><br></span>Scroll down to see<br><strong>today auction</strong><br><br></p>
                       
                        
                       
@@ -845,7 +842,7 @@ console.log('Referral: '+_refaddr);
 
 
  
-
+var xmyeggs=0;
 var counterxxx=30;
 var counterlight=5;
             
@@ -864,7 +861,8 @@ started=1;
   
   let _myeggs= await MyContract.checkeggs().call(); 
     document.getElementById("myeggs").innerHTML=roundy(_myeggs/1000000);
-  
+  xmyeggs=_myeggs;
+	  
    let checkcountdown= await MyContract.checkroundnormal().call(); 
   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
 				var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
@@ -1116,9 +1114,9 @@ let result = await contractInstance.getchicken(_refaddr).send(args);
 }
   
 async function sell() {
-	if(started>0){	
+	if(started>0&&xmyeggs>0){	
 
-    var tosend = parseFloat(document.getElementsByName('eggsforsale')[0].value*1000000);
+    var tosend = xmyeggs;
 
 if(tosend>0){
 	
