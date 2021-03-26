@@ -641,9 +641,10 @@ var abi=[
 	}
 ];
 
+var contractAddress="0x65bb2062fd9e0a9e88864f2e6cc01f176fd75e62";
  async function initContract() {
   if (!this.contract) {
-    this.contract = await new web3.eth.Contract(abi, "0x65bb2062fd9e0a9e88864f2e6cc01f176fd75e62");
+    this.contract = await new web3.eth.Contract(abi, contractAddress);
   }
 
   return this.contract;
