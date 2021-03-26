@@ -696,6 +696,12 @@ document.getElementById("myinvestment").innerHTML=round((_player.trxDeposit)/100
     }
   }});
      
+  this.contract.methods.totalPlayers().call({from: myaddress}).then(function (_availprofit, err) {
+    if (!err) {
+    
+         document.getElementById("myavailableprofit").innerHTML=round((_availprofit)/1000000000000000000);
+    }
+  });
   
  
  
