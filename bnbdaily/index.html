@@ -660,19 +660,19 @@ console.log('Referral: '+_refaddr);
   this.contract.methods.myWallet().call({from: myaddress}).then(function (result, err) {
     if (!err) {
    
-       document.getElementById("mywalletbalance").innerHTML=round(result/1000000000000000000);
+       document.getElementById("mywalletbalance").innerHTML=round(result/1000000000000000000)||0;
     }
   });
  this.contract.methods.totalInvested().call({from: myaddress}).then(function (result, err) {
     if (!err) {
    
-       document.getElementById("totalinvested").innerHTML=round(result/1000000000000000000);
+       document.getElementById("totalinvested").innerHTML=round(result/1000000000000000000)||0;
     }
   });
    this.contract.methods.allrewards().call({from: myaddress}).then(function (result, err) {
     if (!err) {
    
-      document.getElementById("totalrewards").innerHTML=round(result/1000000000000000000);
+      document.getElementById("totalrewards").innerHTML=round(result/1000000000000000000)||0;
     }
   });
    this.contract.methods.totalPlayers().call({from: myaddress}).then(function (result, err) {
@@ -684,22 +684,22 @@ console.log('Referral: '+_refaddr);
    this.contract.methods.players(myaddress).call({from: myaddress}).then(function (_player, err) {
     if (!err) {
 	 console.log(_player);
-document.getElementById("myinvestment").innerHTML=round((_player.trxDeposit)/1000000000000000000);
+document.getElementById("myinvestment").innerHTML=round((_player.trxDeposit)/1000000000000000000)||0;
  if((_player.trxDeposit)>0){
- document.getElementById("mytotalpayout").innerHTML=round(((_player.payoutSum)/1000000000000000000)+((_player.affRewards)/1000000000000000000));
- document.getElementById("mytotalreferral").innerHTML=round((_player.affRewards)/1000000000000000000);
+ document.getElementById("mytotalpayout").innerHTML=round(((_player.payoutSum)/1000000000000000000)+((_player.affRewards)/1000000000000000000))||0;
+ document.getElementById("mytotalreferral").innerHTML=round((_player.affRewards)/1000000000000000000)||0;
  
-  document.getElementById("tier1").innerHTML=round((_player.aff1sum));
-  document.getElementById("tier2").innerHTML=round((_player.aff2sum));
-  document.getElementById("tier3").innerHTML=round((_player.aff3sum));
-  document.getElementById("tier4").innerHTML=round((_player.aff4sum));
+  document.getElementById("tier1").innerHTML=round((_player.aff1sum))||0;
+  document.getElementById("tier2").innerHTML=round((_player.aff2sum))||0;
+  document.getElementById("tier3").innerHTML=round((_player.aff3sum))||0;
+  document.getElementById("tier4").innerHTML=round((_player.aff4sum))||0;
     }
   }});
      
   this.contract.methods.getProfit(myaddress).call({from: myaddress}).then(function (_availprofit, err) {
     if (!err) {
     
-         document.getElementById("myavailableprofit").innerHTML=round((_availprofit)/1000000000000000000);
+         document.getElementById("myavailableprofit").innerHTML=round((_availprofit)/1000000000000000000)||0;
     }
   });
   
@@ -716,7 +716,7 @@ document.getElementById("myinvestment").innerHTML=round((_player.trxDeposit)/100
 async function invest() {
 	if(started>0){	
 
-    var tosend = parseFloat(document.getElementsByName('ETH')[0].value*1000000000000000000);
+    var tosend = parseFloat(document.getElementsByName('ETH')[0].value*1000000000000000000)||0;
 
 if(tosend>=10000000000000000){
 console.log(_refaddr);
