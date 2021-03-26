@@ -341,21 +341,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
   var ready=0;
   var accounts;
   
-window.addEventListener('load', async function () {
-  if (window.ethereum) {
-    window.web3 = new Web3(ethereum);
-  } else if (window.web3) {
-    window.web3 = new Web3(web3.currentProvider);
-  }
-  try {
-   accounts = await web3.eth.getAccounts();
-   await initContract();
-   ready=1;
-  } catch (error) {
-    // User denied account access...
-    console.error(error)
-  }
-})
+
 
 
 
@@ -830,8 +816,8 @@ window.addEventListener('load', async function () {
   try {
     await ethereum.enable() // Request access
     await initContract();
-    await populateUserAddress()
-    main()
+    accounts = await web3.eth.getAccounts();
+	ready=1;
   } catch (error) {
     // User denied account access...
     console.error(error)
