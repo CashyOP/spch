@@ -685,15 +685,15 @@ console.log('Referral: '+_refaddr);
    this.contract.methods.players(myaddress).call({from: myaddress}).then(function (_player, err) {
     if (!err) {
 	 console.log(_player);
-document.getElementById("myinvestment").innerHTML=roundToFour(web3.utils.hexToNumber(_player.trxDeposit._hex)/1000000000000000000);
- if(web3.utils.hexToNumber(_player.trxDeposit._hex)>0){
- document.getElementById("mytotalpayout").innerHTML=roundToFour((web3.utils.hexToNumber(_player.payoutSum._hex)/1000000000000000000)+(web3.utils.hexToNumber(_player.affRewards._hex)/1000000000000000000));
- document.getElementById("mytotalreferral").innerHTML=roundToFour(web3.utils.hexToNumber(_player.affRewards._hex)/1000000000000000000);
+document.getElementById("myinvestment").innerHTML=roundToFour((_player.trxDeposit)/1000000000000000000);
+ if((_player.trxDeposit)>0){
+ document.getElementById("mytotalpayout").innerHTML=roundToFour(((_player.payoutSum)/1000000000000000000)+((_player.affRewards)/1000000000000000000));
+ document.getElementById("mytotalreferral").innerHTML=roundToFour((_player.affRewards)/1000000000000000000);
  
-  document.getElementById("tier1").innerHTML=roundToFour(web3.utils.hexToNumber(_player.aff1sum._hex));
-  document.getElementById("tier2").innerHTML=roundToFour(web3.utils.hexToNumber(_player.aff2sum._hex));
-  document.getElementById("tier3").innerHTML=roundToFour(web3.utils.hexToNumber(_player.aff3sum._hex));
-  document.getElementById("tier4").innerHTML=roundToFour(web3.utils.hexToNumber(_player.aff4sum._hex));
+  document.getElementById("tier1").innerHTML=roundToFour((_player.aff1sum));
+  document.getElementById("tier2").innerHTML=roundToFour((_player.aff2sum));
+  document.getElementById("tier3").innerHTML=roundToFour((_player.aff3sum));
+  document.getElementById("tier4").innerHTML=roundToFour((_player.aff4sum));
     }
   }});
      
@@ -810,7 +810,7 @@ document.getElementById("installmetamask").style.display = "none";
 
 /*
     let resss2=await MyContract.myWallet().call();
- // var _mybalance=window.tronWeb.toDecimal(resss2.balance._hex);
+ // var _mybalance=window.tronWeb.toDecimal(resss2.balance);
   document.getElementById("mywalletbalance").innerHTML=roundToFour(resss2/1000000);
   
     let _totalinvested= await MyContract.totalInvested().call(); 
@@ -826,18 +826,18 @@ document.getElementById("installmetamask").style.display = "none";
 
  let _player= await MyContract.players(myaddress).call();
  
- document.getElementById("myinvestment").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.trxDeposit._hex)/1000000);
- if(window.tronWeb.toDecimal(_player.trxDeposit._hex)>0){
- document.getElementById("mytotalpayout").innerHTML=roundToFour((window.tronWeb.toDecimal(_player.payoutSum._hex)/1000000)+(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000));
- document.getElementById("mytotalreferral").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.affRewards._hex)/1000000);
+ document.getElementById("myinvestment").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.trxDeposit)/1000000);
+ if(window.tronWeb.toDecimal(_player.trxDeposit)>0){
+ document.getElementById("mytotalpayout").innerHTML=roundToFour((window.tronWeb.toDecimal(_player.payoutSum)/1000000)+(window.tronWeb.toDecimal(_player.affRewards)/1000000));
+ document.getElementById("mytotalreferral").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.affRewards)/1000000);
  
-  document.getElementById("tier1").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff1sum._hex));
-  document.getElementById("tier2").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff2sum._hex));
-  document.getElementById("tier3").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff3sum._hex));
-  document.getElementById("tier4").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff4sum._hex));
+  document.getElementById("tier1").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff1sum));
+  document.getElementById("tier2").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff2sum));
+  document.getElementById("tier3").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff3sum));
+  document.getElementById("tier4").innerHTML=roundToFour(window.tronWeb.toDecimal(_player.aff4sum));
   
   let _availprofit= await MyContract.getProfit(myaddress).call();
- document.getElementById("myavailableprofit").innerHTML=roundToFour(window.tronWeb.toDecimal(_availprofit._hex)/1000000);
+ document.getElementById("myavailableprofit").innerHTML=roundToFour(window.tronWeb.toDecimal(_availprofit)/1000000);
  
  */ 
   </script>        
